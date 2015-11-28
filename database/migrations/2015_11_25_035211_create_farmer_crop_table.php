@@ -14,7 +14,7 @@ class CreateFarmerCropTable extends Migration
     {
         Schema::create('farmer_crop', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('farmer_id');
+            $table->unsignedInteger('user_id');
             $table->unsignedInteger('crop_id');
             $table->string('land_location');
             $table->string('area_of_cultivation');

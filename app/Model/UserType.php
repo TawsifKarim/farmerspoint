@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserType extends Model
 {
-   protected $table ="user_type";
+    protected $table ="user_type";
 
-   protected $fillable = ['name'];
+    protected $fillable = ['name'];
 
-   public function user()
-   {
-   		return $this->hasMany(User::class);
-   }
+    public function user()
+    {
+    	return $this->hasMany(User::class);
+    }
 
 }

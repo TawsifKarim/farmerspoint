@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Upazila extends Model
 {
-   protected $table = "upazila";
+    protected $table = "upazila";
 
-   public function district(){
-    		return $this->belongsTo(District::class);
-    	}
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
 }

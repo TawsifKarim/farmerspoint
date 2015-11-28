@@ -6,13 +6,35 @@ use Illuminate\Database\Eloquent\Model;
 
 class FarmerPoint extends Model
 {
-   protected $table = "farmer_point";
+    protected $table = "farmer_point";
 
-   protected $fillable = ['name',
-   						  'phone',
-   						  'address',
-   						  'upazila_id',
-   						  'district_id',
-   						  'division_id',
-   						  ];
+    protected $fillable = [
+        'name',
+        'phone',
+        'address',
+        'upazila_id',
+        'district_id',
+        'division_id',
+    ];
+
+    public function division()
+    {
+        return $this->belongsTo(Division::class);
+    }
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function upazila()
+    {
+        return $this->belongsTo(upazila::class);
+    }
+
+    public function agent()
+    {
+        return $this->hasMany(AgentInfo::class);
+    }
+
 }

@@ -9,6 +9,6 @@ class District extends Model
     protected $table = "district";
 
     public function division(){
-    		return $this->belongsTo(Division::class);
-    	}
+		return $this->belongsTo(Division::class);
+	}
 }
