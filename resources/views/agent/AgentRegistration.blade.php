@@ -1,4 +1,4 @@
-@extends('layout.layout') 
+@extends('layout.layout')
 @section('content')
 
 
@@ -18,68 +18,68 @@
 
 <!-- Name input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Name">Name</label>  
+  <label class="col-md-4 control-label" for="Name">Name</label>
   <div class="col-md-4">
   <input id="Name" name="name" type="text" placeholder="Enter name" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 <!-- email input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="email">email</label>  
+  <label class="col-md-4 control-label" for="email">email</label>
   <div class="col-md-4">
   <input id="Name" name="email" type="text" placeholder="Enter email address" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="password">password</label>  
+  <label class="col-md-4 control-label" for="password">password</label>
   <div class="col-md-4">
   <input id="Name" name="password" type="password"  class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <!-- phone input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Phone">Phone</label>  
+  <label class="col-md-4 control-label" for="Phone">Phone</label>
   <div class="col-md-4">
   <input id="Phone" name="phone" type="text" placeholder="Enter phone no." class="form-control input-md" required="">
-    
+
   </div>
 </div>
 <!-- address input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Address">Address</label>  
+  <label class="col-md-4 control-label" for="Address">Address</label>
   <div class="col-md-4">
   <input id="Address" name="address" type="text" placeholder="Enter address" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <!-- National_Id input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Nid">National ID</label>  
+  <label class="col-md-4 control-label" for="Nid">National ID</label>
   <div class="col-md-4">
   <input id="Nid" name="nid" type="text" placeholder="Enter National ID" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <!-- date of birth input-->
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="DOB">Date of birth</label>  
+  <label class="col-md-4 control-label" for="DOB">Date of birth</label>
   <div class="col-md-4">
   <input id="DOB" name="dob" type="date" placeholder="Enter Date of Birth" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <!-- user_type_id -->
 
-<input type="hidden" name="user_type_id" value="2"> 
+<input type="hidden" name="user_type_id" value="2">
 
 <!-- Select Division -->
 
@@ -91,7 +91,7 @@
  <?php
         $pdo = new PDO('mysql:host=localhost;dbname=fm1', 'root', '');
         #Set Error Mode to ERRMODE_EXCEPTION.
-        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->prepare('Select * from division');
     $stmt->execute();
@@ -113,7 +113,7 @@
  <?php
         $pdo = new PDO('mysql:host=localhost;dbname=fm1', 'root', '');
         #Set Error Mode to ERRMODE_EXCEPTION.
-        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->prepare('Select * from district');
     $stmt->execute();
@@ -138,7 +138,7 @@
  <?php
         $pdo = new PDO('mysql:host=localhost;dbname=fm1', 'root', '');
         #Set Error Mode to ERRMODE_EXCEPTION.
-        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->prepare('Select * from upazila');
     $stmt->execute();
@@ -152,10 +152,10 @@
 
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="v">Farmer Point</label>  
+  <label class="col-md-4 control-label" for="v">Farmer Point</label>
   <div class="col-md-4">
-  <input id="Address" name="farmer_point" type="text" placeholder="enter farmer point id/name" class="form-control input-md" required="">
-    
+  {!! Form::select('farmer_point_id', $farmerPointList, null, ['class' => 'form-control']) !!}
+
   </div>
 </div>
 
@@ -164,7 +164,7 @@
 <!-- Textarea -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="textarea">Remarks</label>
-  <div class="col-md-4">                     
+  <div class="col-md-4">
     <textarea class="form-control" id="textarea" name="remarks"></textarea>
   </div>
 </div>
@@ -172,7 +172,7 @@
 
 
 
-<!-- File Button --> 
+<!-- File Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="filebutton">Choose photo</label>
   <div class="col-md-4">

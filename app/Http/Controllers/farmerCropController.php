@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\Http\Requests\FarmerCropRequest;
 use App\Http\Controllers\Controller;
+use App\Model\FarmerCrop;
+use App\Model\Crop;
+use App\Model\Upazila;
 
 class farmerCropController extends Controller
 {
@@ -24,9 +26,15 @@ class farmerCropController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-    return view('Farmer.FarmerCropRegistration');
+        $cropList = Crop::lists('name', 'id')->all();
+        $upazilaList = Upazila::lists('name', 'id')->all();
+        return view('Farmer.FarmerCropRegistration', [
+            'farmerId'    => $id,
+            'cropList'    => $cropList,
+            'upazilaList' => $upazilaList
+        ]);
     }
 
     /**
@@ -35,9 +43,21 @@ class farmerCropController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, FarmerCropRequest $request)
     {
-        //
+        $farmerCrop = FarmerCrop::create([
+            'crop_id'             => $request->crop_id,
+    		'land_location'       => $request->land_location,
+    		'area_of_cultivation' => $request->area_of_cultivation,
+    		'harvest_start_date'  => $request->harvest_start_date,
+    		'harvest_end_date'    => $request->harvest_end_date,
+    		'expected_amount'     => $request->expected_amount,
+    		'status'              => $request->status,
+            'remarks'             => $request->remarks,
+            'user_id'             => $id
+        ]);
+
+        return 'saved';
     }
 
     /**
@@ -80,8 +100,11 @@ class farmerCropController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($farmerId, $id)
     {
-        //
+        $farmerCrop = FarmerCrop::find($id);
+        $farmerCrop->delete();
+
+        return redirect("farmer/$farmerId");
     }
 }

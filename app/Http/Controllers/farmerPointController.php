@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Model\FarmerPoint;
 
 class farmerPointController extends Controller
 {
@@ -26,7 +27,7 @@ class farmerPointController extends Controller
      */
     public function create()
     {
-        //
+        return view ('FarmerPoint.createFarmerPoint');
     }
 
     /**
@@ -37,7 +38,16 @@ class farmerPointController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $farmerPoint = FarmerPoint::create([
+            'name'          =>  $request->name,
+            'phone'         =>  $request->phone,
+            'address'       =>  $request->address,
+            'division_id'   =>  $request->division_id,
+            'district_id'   =>  $request->district_id,
+            'upazila_id'    =>  $request->upazila_id,
+
+        ]);
+        return redirect("farmerPoint/{$farmerPoint->id}");
     }
 
     /**
@@ -48,7 +58,9 @@ class farmerPointController extends Controller
      */
     public function show($id)
     {
-        //
+        $farmerPoint = FarmerPoint::find($id);
+
+         return view ('FarmerPoint.FarmerPointDetail', ['farmerPoint' => $farmerPoint]);
     }
 
     /**

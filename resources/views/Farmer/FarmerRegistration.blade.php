@@ -1,4 +1,4 @@
-@extends('layout.layout') 
+@extends('layout.layout')
 @section('content')
 
 <img src="/img/bg5.jpg" class="img-responsive">
@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
 
-{!! Form::open(['route'=>'farmer.store','class'=>'form-horizontal']) !!}
+{!! Form::open(['route'=>'farmer.store','class'=>'form-horizontal', 'files' => true]) !!}
 
 <fieldset>
 
@@ -18,51 +18,51 @@
 
 <!-- Name input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Name">Name</label>  
+  <label class="col-md-4 control-label" for="Name">Name</label>
   <div class="col-md-4">
   <input id="Name" name="name" type="text" placeholder="Enter name" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 <!-- phone input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Phone">Phone</label>  
+  <label class="col-md-4 control-label" for="Phone">Phone</label>
   <div class="col-md-4">
   <input id="Phone" name="phone" type="text" placeholder="Enter phone no." class="form-control input-md" required="">
-    
+
   </div>
 </div>
 <!-- address input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Address">Address</label>  
+  <label class="col-md-4 control-label" for="Address">Address</label>
   <div class="col-md-4">
   <input id="Address" name="address" type="text" placeholder="Enter address" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <!-- National_Id input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Nid">National ID</label>  
+  <label class="col-md-4 control-label" for="Nid">National ID</label>
   <div class="col-md-4">
   <input id="Nid" name="nid" type="text" placeholder="Enter National ID" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <!-- date of birth input-->
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="DOB">Date of birth</label>  
+  <label class="col-md-4 control-label" for="DOB">Date of birth</label>
   <div class="col-md-4">
   <input id="DOB" name="dob" type="date" placeholder="Enter Date of Birth" class="form-control input-md" required="">
-    
+
   </div>
 </div>
 
 <!-- user_type_id -->
 
-<input type="hidden" name="user_type_id" value="3"> 
+<input type="hidden" name="user_type_id" value="3">
 
 <!-- Select Division -->
 
@@ -74,7 +74,7 @@
  <?php
         $pdo = new PDO('mysql:host=localhost;dbname=fm1', 'root', '');
         #Set Error Mode to ERRMODE_EXCEPTION.
-        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->prepare('Select * from division');
     $stmt->execute();
@@ -96,7 +96,7 @@
  <?php
         $pdo = new PDO('mysql:host=localhost;dbname=fm1', 'root', '');
         #Set Error Mode to ERRMODE_EXCEPTION.
-        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->prepare('Select * from district');
     $stmt->execute();
@@ -117,7 +117,7 @@
  <?php
         $pdo = new PDO('mysql:host=localhost;dbname=fm1', 'root', '');
         #Set Error Mode to ERRMODE_EXCEPTION.
-        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+        $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $stmt = $pdo->prepare('Select * from upazila');
     $stmt->execute();
@@ -134,7 +134,7 @@
 <!-- Textarea -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="textarea">Remarks</label>
-  <div class="col-md-4">                     
+  <div class="col-md-4">
     <textarea class="form-control" id="textarea" name="remarks"></textarea>
   </div>
 </div>
@@ -142,11 +142,11 @@
 
 
 
-<!-- File Button --> 
+<!-- File Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="filebutton">Choose photo</label>
   <div class="col-md-4">
-    <input id="filebutton" name="filebutton" class="input-file" type="file">
+    <input id="filebutton" name="profile_picture" class="input-file" type="file">
   </div>
 </div>
 

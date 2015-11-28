@@ -3,11 +3,17 @@
 namespace App\Model;
 
 use App\User;
+use App\Model\Upazila;
 use Illuminate\Database\Eloquent\Model;
 
 class FarmerCrop extends Model
 {
     protected $table = "farmer_crop";
+
+    protected $dates = [
+        'harvest_start_date',
+        'harvest_end_date'
+    ];
 
     protected  $fillable = [
         'user_id',
@@ -29,6 +35,11 @@ class FarmerCrop extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function landLocation()
+    {
+        return $this->belongsTo(Upazila::class, 'land_location');
     }
 
 }

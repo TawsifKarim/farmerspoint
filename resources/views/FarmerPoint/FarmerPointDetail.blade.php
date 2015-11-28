@@ -1,4 +1,4 @@
-@extends('layout.layout') 
+@extends('layout.layout')
 @section('content')
 <div class="TopSpacePointList"></div>
 <div class="container">
@@ -9,21 +9,21 @@
 
             <!--edit will be only visible to admins-->
 
-        <a href=""><button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Crop Profile</button></a>
-            
-            
+        <a href=""><button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Farmer Point</button></a>
+
+
         </div>
         <div class="col-md-8">
         	<legend>Point Information</legend>
         	<div class="span5">
             <table class="table table-striped table-condensed table-bordered">
                  <tbody>
-                  	<tr><td><strong>Point Name</strong></td><td>Badha Kopi</td></tr>
-                    <tr><td><strong>Contact</strong></td><td>shitkalin foshol</td></tr>
-                    <tr><td><strong>address</strong></td><td>naugao, Bogra</td></tr>
-                    <tr><td><strong>upazila</strong></td><td>unknown</td></tr> 
-                    <tr><td><strong>district</strong></td><td>dhaka</td></tr>
-                    <tr><td><strong>division</strong></td><td>dhaka</td></tr>
+                  	<tr><td><strong>Point Name</strong></td><td>{{ $farmerPoint->name }}</td></tr>
+                    <tr><td><strong>Contact</strong></td><td>{{ $farmerPoint->phone }}</td></tr>
+                    <tr><td><strong>address</strong></td><td>{{ $farmerPoint->address }}</td></tr>
+                    <tr><td><strong>upazila</strong></td><td>{{ $farmerPoint->upazila->name }}</td></tr>
+                    <tr><td><strong>district</strong></td><td>{{ $farmerPoint->district->name }}</td></tr>
+                    <tr><td><strong>division</strong></td><td>{{ $farmerPoint->division->name }}</td></tr>
               </tbody>
           </table>
       </div>
@@ -45,31 +45,31 @@
                   <tr>
                       <th>Agent Names</th>
                       <th>contact</th>
-                      
-                      
-                     
+
+
+
                    </tr>
-              </thead>   
+              </thead>
               <tbody>
-               
+
                 <tr>
                       <td>lutfor rahman</td>
                       <td>2554654</td>
-                      
-                                    
+
+
                 </tr>
                  <tr>
                       <td>Arefin Molla</td>
                       <td>7526546</td>
-                                                                              
+
                 </tr>
                  <tr>
                       <td>lutfor rahman</td>
                       <td>2554654</td>
-                      
-                                    
+
+
                 </tr>
-                 
+
                </tbody>
             </table>
             </div>
@@ -77,5 +77,5 @@
   </div>
 </div>
 
-		
+
 @stop

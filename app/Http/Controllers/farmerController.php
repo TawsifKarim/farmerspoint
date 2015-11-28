@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use App\Users;
+use App\Http\Requests\UserRequest;
+use App\User;
 use App\Division;
 use App\District;
 use App\upazila;
+use App\Model\FarmerCrop;
+use App\Model\FarmerPoint;
 
 class farmerController extends Controller
 {
@@ -21,10 +23,7 @@ class farmerController extends Controller
      */
     public function index()
     {
-        $allfarmer = Users::where('user_type_id=2')
-                            ->with('division','district','upazila')->paginate(20);  //vul ase
-
-        return view('Farmer.FarmerList',compact('allfarmer'));
+        return $farmerList = User::where('user_type_id', 2)->get();
 
     }
 
@@ -35,6 +34,7 @@ class farmerController extends Controller
      */
     public function create()
     {
+
         return view ('Farmer.FarmerRegistration');
     }
 
@@ -44,9 +44,21 @@ class farmerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $farmer = User::create([
+            'name'          =>  $request->name,
+            'phone'         =>  $request->phone,
+            'address'       =>  $request->address,
+            'nid'           =>  $request->nid,
+            'dob'           =>  $request->dob,
+            'remarks'       =>  $request->remarks,
+            'division_id'   =>  $request->division_id,
+            'district_id'   =>  $request->district_id,
+            'upazila_id'    =>  $request->upazila_id,
+            'user_type_id'  =>  3   // 3 is for farmer
+        ]);
+        return redirect("farmer/{$farmer->id}");
     }
 
     /**
@@ -57,10 +69,12 @@ class farmerController extends Controller
      */
     public function show($id)
     {
-       $farmer = Users::find($id);
+      $farmer = User::find($id);
+      $farmerCropList = FarmerCrop::where('user_id', $id)->get();
 
-       return view ('Farmer.FarmerProfile');
+       return view ('Farmer.FarmerProfile', ['farmer' => $farmer, 'farmerCropList' => $farmerCropList]);
        //                ->with('farmerCrop',$farmer);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -70,8 +84,8 @@ class farmerController extends Controller
      */
     public function edit($id)
     {
-        $farmer=Users::findOrFail($id);
-        return view('Farmer.FarmerEdit',compact('farmer'));
+        // $farmer=Users::findOrFail($id);
+        // return view('Farmer.FarmerEdit',compact('farmer'));
     }
 
     /**
@@ -84,7 +98,7 @@ class farmerController extends Controller
     public function update(Request $request, $id)
     {
         $input  = $request->all();
-        $farmer = Users::findOrFail($id); 
+        $farmer = Users::findOrFail($id);
         $farmer = update($input);
 
         return 'Farmer Profile Updated';

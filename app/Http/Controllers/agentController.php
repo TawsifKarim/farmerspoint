@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\User;
 use App\Http\Controllers\Controller;
+use App\Model\FarmerPoint;
 
 class agentController extends Controller
 {
@@ -26,7 +28,9 @@ class agentController extends Controller
      */
     public function create()
     {
-        return view ('agent.AgentRegistration');
+        $farmerPointList = FarmerPoint::lists('name', 'id')->all();
+
+        return view ('agent.AgentRegistration', ['farmerPointList' => $farmerPointList]);
     }
 
     /**
@@ -37,7 +41,21 @@ class agentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $agent = User::create([
+            'name'          =>  $request->name,
+            'email'         =>  $request->email,
+            'password'      =>  bcrypt($request->password),
+            'phone'         =>  $request->phone,
+            'address'       =>  $request->address,
+            'nid'           =>  $request->nid,
+            'dob'           =>  $request->dob,
+            'remarks'       =>  $request->remarks,
+            'division_id'   =>  $request->division_id,
+            'district_id'   =>  $request->district_id,
+            'upazila_id'    =>  $request->upazila_id,
+            'user_type_id'  =>  2  // 2 is for agent
+        ]);
+        return redirect("agent/{$agent->id}");
     }
 
     /**
@@ -48,7 +66,8 @@ class agentController extends Controller
      */
     public function show($id)
     {
-        //
+        $agent = User::find($id);
+        return view ('agent.agentProfile', ['agent' => $agent]);
     }
 
     /**
