@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
 
-{!! Form::open(['route'=>'crop.update','$crop->id','class'=>'form-horizontal']) !!}
+{!! Form::open(['route'=>'crop.store','class'=>'form-horizontal']) !!}
 
 <fieldset>
 
@@ -18,7 +18,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Name">Crop Name(জাতের নাম)</label>  
   <div class="col-md-4">
-  <input id="Name" name="name" type="text" value="{{$crop->name}}" class="form-control input-md" required="">
+  <input id="Name" name="name" type="text" value="{{ $crop->name }}" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -29,13 +29,13 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="crop_type_id">Crop Type</label>
   <div class="col-md-4">
-<select name="crop_type_id" value="{{$crop->crop_type_id}}" class="form-control">
+<select name="crop_type_id" value="{{ $crop->crop_type_id }}" class="form-control">
  <?php
         $pdo = new PDO('mysql:host=localhost;dbname=fm1', 'root', '');
         #Set Error Mode to ERRMODE_EXCEPTION.
         $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
 
-    $stmt = $pdo->prepare('Select * from crop');
+    $stmt = $pdo->prepare('Select * from crop_type');
     $stmt->execute();
        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
@@ -52,25 +52,26 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="harvest_season">Harvest Season</label>
   <div class="col-md-4">
-    <select id="harvest_season" name="harvest_season" value="{{$crop->harvest_season}}" class="form-control">
+    <select id="harvest_season" name="harvest_season" value="{{ $crop->harvest_season }}" class="form-control">
 
-
-			<option value="Winter(begins on 21-22 Dec)">Winter(begins 21-22 Dec)</option>
-			<option value="Spring(begins on 20-21 Mar)">Spring(begins on 20-21 Mar)</option>
-			<option value="Summer(begins on 20-21 June)">Summer(begins on 20-21 June)</option>
-			<option value="Autumn(begins on 21-22 Sept)">Autumn(begins on 21-22 Sept)</option>
-			<option value="Full year">Full year</option>
-			
-				
+       <option value="Summer">Summer</option>
+       <option value="Rainy">Rainy</option>
+       <option value="Autumn">Autumn</option>
+       <option value="Fall">Fall</option>
+       <option value="Winter">Winter</option>
+       <option value="Spring">Spring</option>
+       <option value="Full year">Full year</option>
+      
+        
  </select>
   </div>
 </div>
 
 <!-- Select harvest locaiton-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Name">Enter Harvest Locations</label>  
+  <label class="col-md-4 control-label" for="Name">Harvest Locations</label>  
   <div class="col-md-4">
-  <input id="Name" name="name" type="text" value="{{$crop->harvest_location}}" class="form-control input-md" required="">
+  <input id="Name" name="harvest_locations" type="text" value="{{ $crop->harvest_locations }}" class="form-control input-md" required="">
     
   </div>
 </div>

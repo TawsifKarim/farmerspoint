@@ -19,7 +19,7 @@
                     <tr><td><strong>Phone</strong></td><td>{{ $farmer->phone }}</td></tr>
                     <tr><td><strong>National ID#</strong></td><td>{{ $farmer->nid }}</td></tr>
 
-                    <tr><td><strong>Date of Birth</strong></td><td>{{ $farmer->dob }}</td></tr>
+                    <tr><td><strong>Date of Birth</strong></td><td>{{ $farmer->dob->toDateString() }}</td></tr>
                     <tr><td><strong>Address</strong></td><td>{{ $farmer->address }}</td></tr>
                     <tr><td><strong>Upzila</strong></td><td>{{ $farmer->upazila->name }}</td></tr>
                     <tr><td><strong>District</strong></td><td>{{ $farmer->district->name }}</td></tr>
@@ -30,7 +30,8 @@
           </table>
       </div>
 
-      <a href="#" class="btn btn-success">Add Cultivation Infos</a>
+      <a href="{{Route('farmer.crop.create',$farmer->id)}}" class="btn btn-success">Add Cultivation Infos</a>
+
 
         </div>
     </div>

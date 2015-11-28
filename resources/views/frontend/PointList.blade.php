@@ -1,4 +1,4 @@
-@extends('layout.layout') 
+@extends('layout.layout')
 @section('content')
 
 <div class="TopSpacePointList"></div>
@@ -8,27 +8,36 @@
 		<div class="span5">
 
 
-            <table class="table table-striped table-condensed table-bordered table-hover">
+            <table class="table table-striped table-condensed table-bordered">
                   <thead>
                   <tr>
-                      <th>Area Name</th>
-                      <th>Location</th>
+                      <th>Point Name</th>
                       <th>Contact</th>
-                     
+                      <th>Address</th>
+					  <th>upazila</th>
+					  <th>District</th>
+					  <th>Division</th>
+					  <th>Actions</th>
+
                    </tr>
-              </thead>   
+              </thead>
               <tbody>
-                @foreach($alldata as $data)
+                @foreach($allpoint as $point)
                 <tr>
-                    <td>{{$data->area_name}}</td>
-                    <td>{{$data->location}}</td>
-                    <td>{{$data->contact}}</td>
-                                                        
+                    <td>{{$point->name}}</td>
+                    <td>{{$point->phone}}</td>
+                    <td>{{$point->address}}</td>
+					<td>{{$point->upazila->name}}</td>
+					<td>{{$point->district->name}}</td>
+					<td>{{$point->division->name}}</td>
+					<td><a href="{{ route('farmerPoint.show',$point->id) }}" class="btn btn-info btn-block">Detail</a></td>
+
                 </tr>
-                
-                @endforeach                                   
+
+                @endforeach
               </tbody>
             </table>
+			{!! $allpoint->render() !!}
             </div>
 	</div>
 </div>

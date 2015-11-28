@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Model\Crop;
+use App\Model\CropType;
+
 class cropController extends Controller
 {
     /**
@@ -26,7 +29,7 @@ class cropController extends Controller
      */
     public function create()
     {
-        //
+        return view ('crop.CropRegister');
     }
 
     /**
@@ -37,7 +40,14 @@ class cropController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $crop = Crop::create([
+            'name'                 =>  $request->name,
+            'crop_type_id'         =>  $request->crop_type_id,
+            'harvest_season'       =>  $request->harvest_season,
+            'harvest_locations'     => $request->harvest_locations,
+            
+        ]);
+        return redirect("crop/{$crop->id}");
     }
 
     /**
@@ -48,7 +58,12 @@ class cropController extends Controller
      */
     public function show($id)
     {
-        //
+        $crop = Crop::find($id);
+        $cropType = CropType::where('id', $id)->get();
+
+
+        return view ('crop.cropProfile',['crop'=>$crop,'cropType' =>$cropType]);
+
     }
 
     /**
@@ -59,7 +74,8 @@ class cropController extends Controller
      */
     public function edit($id)
     {
-        //
+        $crop=Crop::findOrFail($id);
+        return view ('crop.Cropedit',compact('crop'));
     }
 
     /**

@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Model\FarmerPoint;
+use App\Model\CropType;
 
-class farmerPointController extends Controller
+class cropTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,7 @@ class farmerPointController extends Controller
      */
     public function index()
     {
-        $allpoint = FarmerPoint::paginate(10);
-
-        return view ('frontend.pointlist',compact('allpoint'));
+        //
     }
 
     /**
@@ -29,7 +27,7 @@ class farmerPointController extends Controller
      */
     public function create()
     {
-        return view ('FarmerPoint.createFarmerPoint');
+        return view ('crop.CropTypeRegistration');
     }
 
     /**
@@ -40,16 +38,10 @@ class farmerPointController extends Controller
      */
     public function store(Request $request)
     {
-        $farmerPoint = FarmerPoint::create([
+            $crop = CropType::create([
             'name'          =>  $request->name,
-            'phone'         =>  $request->phone,
-            'address'       =>  $request->address,
-            'division_id'   =>  $request->division_id,
-            'district_id'   =>  $request->district_id,
-            'upazila_id'    =>  $request->upazila_id,
-
-        ]);
-        return redirect("farmerPoint/{$farmerPoint->id}");
+            ]);
+            return 'crop name saved successfully to database';
     }
 
     /**
@@ -60,9 +52,7 @@ class farmerPointController extends Controller
      */
     public function show($id)
     {
-        $farmerPoint = FarmerPoint::find($id);
-
-         return view ('FarmerPoint.FarmerPointDetail', ['farmerPoint' => $farmerPoint]);
+        //
     }
 
     /**
@@ -73,8 +63,7 @@ class farmerPointController extends Controller
      */
     public function edit($id)
     {
-        $farmerPoint=FarmerPoint::findOrFail($id);
-        return view('farmerPoint.editFarmerPoint',compact('farmerPoint'));
+        //
     }
 
     /**
@@ -86,11 +75,7 @@ class farmerPointController extends Controller
      */
     public function update(Request $request, $id)
     {
-       // $input = $request->all();
-       // $farmerPoint = FarmerPoint::findOrFail($id);
-        // $farmerPoint ->update($input);
-       // return redirect("farmerPoint/{$farmerPoint->id}");
-
+        //
     }
 
     /**

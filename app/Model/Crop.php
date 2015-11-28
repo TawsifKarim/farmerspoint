@@ -14,7 +14,7 @@ class Crop extends Model
 	    'name',
 		'crop_type_id',
 		'harvest_season',
-		'harvest_location'
+		'harvest_locations'
 	];
 
 	public function cropType()

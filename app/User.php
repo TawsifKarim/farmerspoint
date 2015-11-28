@@ -46,6 +46,11 @@ class User extends Model implements AuthenticatableContract,
         'user_type_id'
     ];
 
+    protected $dates = [
+        'dob'
+
+    ];
+
     /**
      * The attributes excluded from the model's JSON form.
      *

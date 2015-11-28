@@ -35,7 +35,7 @@
         #Set Error Mode to ERRMODE_EXCEPTION.
         $pdo->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
 
-    $stmt = $pdo->prepare('Select * from crop');
+    $stmt = $pdo->prepare('Select * from crop_type');
     $stmt->execute();
        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo '<option value="'.$row['id'].'">'.$row['name'].'</option>';
@@ -54,12 +54,13 @@
   <div class="col-md-4">
     <select id="harvest_season" name="harvest_season" class="form-control">
 
-
-			<option value="Winter(begins on 21-22 Dec)">Winter(begins 21-22 Dec)</option>
-			<option value="Spring(begins on 20-21 Mar)">Spring(begins on 20-21 Mar)</option>
-			<option value="Summer(begins on 20-21 June)">Summer(begins on 20-21 June)</option>
-			<option value="Autumn(begins on 21-22 Sept)">Autumn(begins on 21-22 Sept)</option>
-			<option value="Full year">Full year</option>
+       <option value="Summer">Summer</option>
+       <option value="Rainy">Rainy</option>
+       <option value="Autumn">Autumn</option>
+       <option value="Fall">Fall</option>
+  		 <option value="Winter">Winter</option>
+  		 <option value="Spring">Spring</option>
+  		 <option value="Full year">Full year</option>
 			
 				
  </select>
@@ -70,7 +71,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Name">Harvest Locations</label>  
   <div class="col-md-4">
-  <input id="Name" name="name" type="text" placeholder="Enter crop name" class="form-control input-md" required="">
+  <input id="Name" name="harvest_locations" type="text" placeholder="where it is cultivated" class="form-control input-md" required="">
     
   </div>
 </div>

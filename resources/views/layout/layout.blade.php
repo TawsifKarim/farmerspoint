@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script> 
- <link rel="stylesheet" href="{{ asset('css/style.css') }}">  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+ <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
 
@@ -32,12 +32,12 @@
                     </div>
 
                 <!--Menu Items-->
-                  
+
                 <div class="collapse navbar-collapse" id="mainNavBar">
-                 
+
                        <ul class="nav navbar-nav  navbar-right">
                           <li><a href="/">Home</a></li>
-                          <li><a href="/PointList">Point List</a></li>
+                          <li><a href="/farmerPoint">Point List</a></li>
                           <li><a href="/CropList">Crop List</a></li>
                           <li><a href="/AboutUs">About Us</a></li>
                           <li><a href="/SiteAdmin">Site Admin</a></li>
@@ -45,7 +45,7 @@
                           <li><a href="/login">Log in</a></li>
                        </ul>
                   </div>
-                
+
                 </div>
 
         </nav>
@@ -59,12 +59,12 @@
       <div class="col-md-12">
         <ul class="bottom-links">
               <li> <a href="/">Home</a> </li>
-              <li><a href="/PointList">Point List</a></li>
+              <li><a href="/farmerPoint">Point List</a></li>
               <li><a href="/CropList">Crop List</a></li>
               <li><a href="/AboutUs">About Us</a></li>
               <li><a href="/SiteAdmin">Site Admin</a></li>
               <li><a href="/ContactUs">Contact Us</a></li>
-              
+
         </ul>
       </div>
 

@@ -9,7 +9,7 @@
 
             <!--edit will be only visible to admins-->
 
-        <a href=""><button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Farmer Point</button></a>
+        <a href="{{ route('farmerPoint.edit',$farmerPoint->id) }}"><button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Farmer Point</button></a>
 
 
         </div>
