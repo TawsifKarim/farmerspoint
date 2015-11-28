@@ -1,0 +1,77 @@
+/*img{
+  padding-top: 50px;
+}*/
+
+a:hover{
+    text-decoration: none;
+}
+.bottom-menu{
+
+  width:auto;
+  text-align: center;
+  /*background: #e2e2e2; */
+  color: #bcc3ca;
+  padding: 25px 0 25px;
+  margin: 0 0 0 0;
+}
+
+.bottom-links li {
+  display: inline;
+  float: center;
+  margin: 0 20px 0 0;
+}
+
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
+}
+
+
+
+.loginBox{
+  height: auto;
+  width: auto;
+  margin-top: 170px;
+  margin-bottom: 115px;
+}
+
+/*.profile{
+  height: auto;
+  width: auto;
+  margin-top: 70px;
+
+}*/
+
+.TopSpace{
+  margin-top: 50px;
+}
+
+#profile{
+  margin-left: 80px;
+}
+
+.TopSpacePointList{
+  margin-top: 60px;
+}
+
+#gmap iframe, #gmap object, #gmap embed { 
+  width: 100%; 
+}
+
+.EditButtonTop{
+margin-top: 10px;
+
+}
+
+.profileTopMargin{
+
+  margin-top: 3px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #e8e8e8;
+    color: #000000;
+}
