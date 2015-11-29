@@ -1,8 +1,9 @@
 @extends('layout.layout') 
 @section('content')
+
 <div class="container" id="profile" >
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
+    
+        <div class="col-md-6">
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
@@ -25,6 +26,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 </div> 
 @stop

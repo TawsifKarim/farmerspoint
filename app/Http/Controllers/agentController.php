@@ -18,7 +18,9 @@ class agentController extends Controller
      */
     public function index()
     {
-        //
+       $allagent = User::where('user_type_id', 2)->get();
+        
+        return view ('agent.AgentList',compact('allagent'));
     }
 
     /**
@@ -78,7 +80,8 @@ class agentController extends Controller
      */
     public function edit($id)
     {
-        //
+       $agent = User::findOrFail($id);
+       return view ('agent.AgentEdit',compact('agent'));
     }
 
     /**

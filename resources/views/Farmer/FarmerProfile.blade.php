@@ -6,7 +6,7 @@
         <div class="col-md-3">
             <img src="img/profile1.jpg" class="img-responsive img-thumbnail">
             <div class="EditButtonTop"></div>
-        <a href="">    <button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Farmer Profile</button></a>
+        <a href="{{ Route('farmer.edit',$farmer->id) }}"> <button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Farmer Profile</button></a>
 
 
         </div>
@@ -18,7 +18,6 @@
                   	<tr><td><strong>Name</strong></td><td>{{ $farmer->name }}</td></tr>
                     <tr><td><strong>Phone</strong></td><td>{{ $farmer->phone }}</td></tr>
                     <tr><td><strong>National ID#</strong></td><td>{{ $farmer->nid }}</td></tr>
-
                     <tr><td><strong>Date of Birth</strong></td><td>{{ $farmer->dob->toDateString() }}</td></tr>
                     <tr><td><strong>Address</strong></td><td>{{ $farmer->address }}</td></tr>
                     <tr><td><strong>Upzila</strong></td><td>{{ $farmer->upazila->name }}</td></tr>
@@ -68,10 +67,13 @@
                               <td>{{ $farmerCrop->expected_amount }}</td>
                               <td>{{ $farmerCrop->harvest_start_date->toDateString() }}</td>
                               <td>{{ $farmerCrop->harvest_end_date->toDateString() }}</td>
+                              
                               <td>
-
+                                 <a href="{{ route('farmer.crop.edit', $farmerCrop->id) }}" class="btn btn-success btn-xs">Edit</a>
+                                   
+                                  
                                   {!! Form::open(['url' => "farmer/{$farmer->id}/crop/{$farmerCrop->id}", 'method' => 'delete']) !!}
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-xs">Delete</button>
                                   {!! Form::close() !!}
                               </td>
                         </tr>

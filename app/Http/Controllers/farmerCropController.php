@@ -79,7 +79,8 @@ class farmerCropController extends Controller
      */
     public function edit($id)
     {
-        //
+         $farmerCrop=FarmerCrop::findOrFail($id);
+         return view('Farmer.FarmerCropEdit',compact('farmerCrop'));
     }
 
     /**

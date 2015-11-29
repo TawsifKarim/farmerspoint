@@ -22,8 +22,9 @@ class farmerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return $farmerList = User::where('user_type_id', 2)->get();
+    {   
+
+        return $farmerList = User::where('user_type_id', 3)->get();
 
     }
 
@@ -84,8 +85,8 @@ class farmerController extends Controller
      */
     public function edit($id)
     {
-        // $farmer=Users::findOrFail($id);
-        // return view('Farmer.FarmerEdit',compact('farmer'));
+         $farmer=User::findOrFail($id);
+         return view('Farmer.FarmerEdit',compact('farmer'));
     }
 
     /**
@@ -98,7 +99,7 @@ class farmerController extends Controller
     public function update(Request $request, $id)
     {
         $input  = $request->all();
-        $farmer = Users::findOrFail($id);
+        $farmer = User::findOrFail($id);
         $farmer = update($input);
 
         return 'Farmer Profile Updated';

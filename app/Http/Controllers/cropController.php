@@ -19,7 +19,7 @@ class cropController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
