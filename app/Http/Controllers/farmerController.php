@@ -14,6 +14,8 @@ use App\upazila;
 use App\Model\FarmerCrop;
 use App\Model\FarmerPoint;
 
+use Intervention\Image\Facades\Image;
+
 class farmerController extends Controller
 {
     /**
@@ -59,6 +61,10 @@ class farmerController extends Controller
             'upazila_id'    =>  $request->upazila_id,
             'user_type_id'  =>  3   // 3 is for farmer
         ]);
+        $image = Image::make($request->profile_picture);
+        $image->resize(250, 272);
+        $image->save(public_path("uploads/Farmers/farmer_$farmer->id.jpg"));
+
         return redirect("farmer/{$farmer->id}");
     }
 
@@ -70,6 +76,8 @@ class farmerController extends Controller
      */
     public function show($id)
     {
+
+      
       $farmer = User::find($id);
       $farmerCropList = FarmerCrop::where('user_id', $id)->get();
 
@@ -102,6 +110,14 @@ class farmerController extends Controller
         $farmer = User::findOrFail($id);
         $farmer->update($input);
 
+        if(!empty($request->profile_picture)){
+        
+        $image = Image::make($request->profile_picture);
+        $image->resize(250, 272);
+        $image->save(public_path("uploads/Farmers/farmer_$id.jpg"));
+    
+        }
+        
         return 'Farmer Profile Updated';
     }
 

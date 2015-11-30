@@ -5,8 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class Authenticate
-{
+
+class AgentAuthenticate
+{    
     /**
      * The Guard implementation.
      *
@@ -24,7 +25,6 @@ class Authenticate
     {
         $this->auth = $auth;
     }
-
     /**
      * Handle an incoming request.
      *
@@ -42,10 +42,9 @@ class Authenticate
             }
         }
 
-        if(! $this->auth->user()->user_type != 1) {
+        if(! $this->auth->user()->user_type != 2) {
          return redirect()->guest('auth/login');   
         }
-
         return $next($request);
     }
 }

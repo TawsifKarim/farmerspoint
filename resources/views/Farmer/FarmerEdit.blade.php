@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
 
-{!! Form::open(['route'=>['farmer.update',$farmer->id],'class'=>'form-horizontal','method'=>'PUT']) !!}
+{!! Form::open(['route'=>['farmer.update',$farmer->id],'class'=>'form-horizontal','method'=>'PUT','files'=>'true']) !!}
 
 <fieldset>
 
@@ -146,7 +146,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="filebutton">Choose photo</label>
   <div class="col-md-4">
-    <input id="filebutton" name="filebutton" class="input-file" type="file">
+    <input id="filebutton" name="profile_picture" class="input-file" type="file">
   </div>
 </div>
 

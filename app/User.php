@@ -78,6 +78,21 @@ class User extends Model implements AuthenticatableContract,
         return $this->belongsTo(UserType::class);
     }
 
+public function getFarmerAttribute()
+    {
+        if(file_exists(public_path("uploads/Farmers/farmer_{$this->id}.jpg"))){
+            return url("uploads/Farmers/farmer_{$this->id}.jpg");
+        }
+        return url("img/profile1.jpg");
+    }
+
+public function getAgentAttribute()
+    {
+        if(file_exists(public_path("uploads/Agents/agent_{$this->id}.jpg"))){
+            return url("uploads/Agents/agent_{$this->id}.jpg");
+        }
+        return url("img/profile1.jpg");
+    }
 
 
 
