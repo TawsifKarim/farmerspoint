@@ -96,11 +96,11 @@ class farmerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
         $input  = $request->all();
         $farmer = User::findOrFail($id);
-        $farmer = update($input);
+        $farmer->update($input);
 
         return 'Farmer Profile Updated';
     }

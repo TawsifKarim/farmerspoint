@@ -4,7 +4,7 @@
 <legend>Land Property</legend>
 
 
-{!! Form::open(['url' => "farmer/$farmerId/crop" ,'class'=>'form-horizontal']) !!}
+{!! Form::open([null,'class'=>'form-horizontal']) !!}
 
 
 <div class="form-group">
@@ -53,9 +53,6 @@
 
   </div>
 </div>
-
-
-
 
 <!-- Status type boolean -->
 <div class="form-group">

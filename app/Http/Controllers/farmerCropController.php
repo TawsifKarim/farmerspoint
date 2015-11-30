@@ -26,8 +26,9 @@ class farmerCropController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create(Request $request)
     {
+        $id = $request->id;
         $cropList = Crop::lists('name', 'id')->all();
         $upazilaList = Upazila::lists('name', 'id')->all();
         return view('Farmer.FarmerCropRegistration', [
@@ -43,7 +44,7 @@ class farmerCropController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id, FarmerCropRequest $request)
+    public function store(FarmerCropRequest $request)
     {
         $farmerCrop = FarmerCrop::create([
             'crop_id'             => $request->crop_id,
@@ -54,7 +55,7 @@ class farmerCropController extends Controller
     		'expected_amount'     => $request->expected_amount,
     		'status'              => $request->status,
             'remarks'             => $request->remarks,
-            'user_id'             => $id
+            'user_id'             => $request->id
         ]);
 
         return 'saved';
@@ -79,8 +80,10 @@ class farmerCropController extends Controller
      */
     public function edit($id)
     {
-         $farmerCrop=FarmerCrop::findOrFail($id);
-         return view('Farmer.FarmerCropEdit',compact('farmerCrop'));
+         $cropList = Crop::lists('name', 'id')->all();
+         $upazilaList = Upazila::lists('name', 'id')->all();
+         $crop=FarmerCrop::findOrFail($id);
+         return view('Farmer.FarmerCropEdit',compact('crop', 'cropList','upazilaList'));
     }
 
     /**

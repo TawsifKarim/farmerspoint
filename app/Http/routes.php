@@ -83,7 +83,7 @@
     /*resource controller*/
 
     Route::resource('farmer','farmerController');
-    Route::resource('farmer.crop','farmerCropController');
+    Route::resource('farmercrop','farmerCropController');
     Route::resource('agent','agentController');
     Route::resource('cropType','cropTypeController');
     Route::resource('crop','cropController');

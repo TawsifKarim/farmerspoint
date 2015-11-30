@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
 
-{!! Form::open(['route'=>'farmer.update',$farmer->id,'class'=>'form-horizontal','method'=>'PUT']) !!}
+{!! Form::open(['route'=>['farmer.update',$farmer->id],'class'=>'form-horizontal','method'=>'PUT']) !!}
 
 <fieldset>
 
@@ -55,7 +55,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="DOB">Date of birth</label>
   <div class="col-md-4">
-  <input id="DOB" name="dob" type="date" value="{{$farmer->dob}}" class="form-control input-md" required="">
+  <input id="DOB" name="dob" type="date" value="{{$farmer->dob->format('Y-m-d')}}" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -135,7 +135,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textarea">Remarks</label>
   <div class="col-md-4">
-    <textarea class="form-control" id="textarea" name="remarks" value="{{$farmer->remarks}}"></textarea>
+    <textarea class="form-control" id="textarea" name="remarks">{{$farmer->remarks}}</textarea>
   </div>
 </div>
 

@@ -4,8 +4,8 @@
 <legend>Land Property</legend>
 
 
-{!! Form::open(['url' => "farmer/$farmerId/crop/edit" ,'class'=>'form-horizontal','method'='PUT']) !!}
 
+{!! Form::open(['route' => ['farmercrop.edit', $crop->id], 'class'=>'form-horizontal','method'=>'PUT']) !!}
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="v">crop</label>
@@ -21,11 +21,11 @@
       {!! Form::select('land_location', $upazilaList, null, ['class' => 'form-control']) !!}
 </div>
 </div>
-
+`
 <div class="form-group">
   <label class="col-md-4 control-label" for="Area_of_cultivation">Area of Cultivation(in acre)</label>
   <div class="col-md-4">
-  <input id="Area_of_cultivation" name="area_of_cultivation" type="number" placeholder="Enter land area" class="form-control input-md" required="">
+  <input id="Area_of_cultivation" name="area_of_cultivation" type="number" value="{{ $crop->area_of_cultivation }}" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -33,7 +33,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Expected_production">Expected Production (in kg)</label>
   <div class="col-md-4">
-  <input id="Expected_production" name="expected_amount" type="number" placeholder="Enter amount" class="form-control input-md" required="">
+  <input id="Expected_production" name="expected_amount" type="number" value="{{ $crop->expected_amount }}" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -41,7 +41,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Harvest_start">harvest start date</label>
   <div class="col-md-4">
-  <input id="Harvest_start" name="harvest_start_date" type="date" placeholder="Enter date" class="form-control input-md" required="">
+  <input id="Harvest_start" name="harvest_start_date" type="date" value="{{ $crop->harvest_start_date }}" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -49,7 +49,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Harvest_end">harvest end date</label>
   <div class="col-md-4">
-  <input id="Harvest_end" name="harvest_end_date" type="date" placeholder="Enter date" class="form-control input-md" required="">
+  <input id="Harvest_end" name="harvest_end_date" type="date" value="{{ $crop->harvest_end_date }}" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -63,7 +63,7 @@
 
 
   <div class="col-md-4">
-    <textarea class="form-control" id="textarea" name="status"></textarea>
+    <textarea class="form-control" id="textarea" name="status" >{{ $crop->status }}</textarea>
   </div>
 </div>
 
@@ -73,7 +73,7 @@
 
 
   <div class="col-md-4">
-    <textarea class="form-control" id="textarea" name="remarks"></textarea>
+    <textarea class="form-control" id="textarea" name="remarks">{{ $crop->remarks  }}</textarea>
   </div>
 </div>
 
