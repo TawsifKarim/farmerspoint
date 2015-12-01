@@ -15,7 +15,6 @@
                       <th>Name</th>
                       <th>Contact</th>
                       <th>Address</th>
-                      <th>AgentId</th>     <!--check it please-->
                       <th>Upazila</th>
                       <th>District</th>
                       <th>Division</th>
@@ -29,11 +28,11 @@
                     <td>{{$agent->name}}</td>
                     <td>{{$agent->phone}}</td>
                     <td>{{$agent->address}}</td>
-                    <td>{{$agent->upazila->upazila}}</td>
-                    <td>{{$agent->district->district}}</td>
-                    <td>{{$agent->division->division}}</td>
+                    <td>{{$agent->upazila->name}}</td>
+                    <td>{{$agent->district->name}}</td>
+                    <td>{{$agent->division->name}}</td>
                     <td>
-                        <a href="{{route('agent.agentProfile',$agent->id)}}" class="btn btn-success">Profile</a>
+                        <a href="{{route('agent.show',$agent->id)}}" class="btn btn-success">Profile</a>
                     </td>                                       
                 </tr>
                                                         

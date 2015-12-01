@@ -97,7 +97,20 @@ class agentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $agent = User::findOrFail($id);
+        $agent->update($input);
+
+         if(!empty($request->profile_picture)){
+        
+        $image = Image::make($request->profile_picture);
+        $image->resize(250, 272);
+        $image->save(public_path("uploads/Agents/Agent_$id.jpg"));
+    
+        }
+
+        return redirect("agent/{$agent->id}");
+
     }
 
     /**

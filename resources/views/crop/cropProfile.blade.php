@@ -6,7 +6,7 @@
         <div class="col-md-3">
             <img src="{{ url($crop->crop) }}" class="img-responsive img-thumbnail">
             <div class="EditButtonTop"></div>
-        <a href="{{ Route('crop.edit',$crop->id) }}">    <button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Crop Detail</button></a>
+        <a href="{{ Route('crop.edit',$crop->id) }}"><button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Crop Detail</button></a>
             
             
         </div>

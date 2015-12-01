@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
 
-{!! Form::open(['route'=>'agent.update',$farmer->id,'class'=>'form-horizontal','method'=>'PUT']) !!}
+{!! Form::open(['route'=>['agent.update',$agent->id],'class'=>'form-horizontal','method'=>'PUT','files'=>true]) !!}
 
 <fieldset>
 
@@ -72,7 +72,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="DOB">Date of birth</label>  
   <div class="col-md-4">
-  <input id="DOB" name="dob" type="date" value="{{$agent-dob>}}" class="form-control input-md" required="">
+  <input id="DOB" name="dob" type="date" value="{{ $agent->dob->format('Y-m-d') }}" class="form-control input-md" required="">
     
   </div>
 </div>
@@ -156,7 +156,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textarea">Remarks</label>
   <div class="col-md-4">                     
-    <textarea class="form-control" value="{{$agent->remarks}}" id="textarea" name="remarks"></textarea>
+    <textarea class="form-control" id="textarea" name="remarks">{{ $agent->remarks }}</textarea>
   </div>
 </div>
 
@@ -167,7 +167,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="filebutton">Choose photo</label>
   <div class="col-md-4">
-    <input id="filebutton" name="filebutton" class="input-file" type="file">
+    <input id="filebutton" name="profile_picture" class="input-file" type="file">
   </div>
 </div>
 

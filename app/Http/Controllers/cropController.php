@@ -92,7 +92,20 @@ class cropController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->all();
+        $crop = Crop::findOrFail($id);
+        $crop->update($input);
+
+         if(!empty($request->profile_picture)){
+        
+        $image = Image::make($request->profile_picture);
+        $image->resize(250, 272);
+        $image->save(public_path("uploads/Crops/crop_$id.jpg"));
+    
+        }
+
+        return redirect("crop/{$crop->id}");
+
     }
 
     /**

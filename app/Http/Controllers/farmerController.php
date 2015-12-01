@@ -124,7 +124,7 @@ class farmerController extends Controller
     
         }
         
-        return 'Farmer Profile Updated';
+       return redirect("farmer/{$farmer->id}");
     }
 
     /**

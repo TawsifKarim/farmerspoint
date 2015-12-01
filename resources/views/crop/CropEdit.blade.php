@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
 
-{!! Form::open(['route'=>'crop.store','class'=>'form-horizontal','files'=> true]) !!}
+{!! Form::open(['route'=>['crop.update',$crop->id],'class'=>'form-horizontal','method'=>'PUT','files'=> true]) !!}
 
 <fieldset>
 

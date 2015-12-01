@@ -19,7 +19,7 @@
                     <tr><td><strong>email</strong></td><td>{{ $agent->email }}</td></tr>
                     <tr><td><strong>Phone</strong></td><td>{{ $agent->phone }}</td></tr>
                     <tr><td><strong>National ID#</strong></td><td>{{ $agent->nid }}</td></tr>
-                    <tr><td><strong>Date of Birth</strong></td><td>{{ $agent->dob }}</td></tr>
+                    <tr><td><strong>Date of Birth</strong></td><td>{{ $agent->dob->format('Y-m-d') }}</td></tr>
                     <tr><td><strong>Address</strong></td><td>{{ $agent->address }}</td></tr>
                     <tr><td><strong>Upzila</strong></td><td>{{ $agent->upazila->name }}</td></tr>
                     <tr><td><strong>District</strong></td><td>{{ $agent->district->name }}</td></tr>
