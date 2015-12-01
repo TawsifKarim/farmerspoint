@@ -5,7 +5,7 @@
 
 
 
-{!! Form::open(['route' => ['farmercrop.edit', $crop->id], 'class'=>'form-horizontal','method'=>'PUT']) !!}
+{!! Form::open(['route' => ['farmercrop.update', $crop->id], 'class'=>'form-horizontal','method'=>'PUT']) !!}
 
 <div class="form-group">
   <label class="col-md-4 control-label" for="v">crop</label>
@@ -41,7 +41,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Harvest_start">harvest start date</label>
   <div class="col-md-4">
-  <input id="Harvest_start" name="harvest_start_date" type="date" value="{{ $crop->harvest_start_date }}" class="form-control input-md" required="">
+  <input id="Harvest_start" name="harvest_start_date" type="date" value="{{ $crop->harvest_start_date->format('Y-m-d') }}" class="form-control input-md" required="">
 
   </div>
 </div>
@@ -49,7 +49,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="Harvest_end">harvest end date</label>
   <div class="col-md-4">
-  <input id="Harvest_end" name="harvest_end_date" type="date" value="{{ $crop->harvest_end_date }}" class="form-control input-md" required="">
+  <input id="Harvest_end" name="harvest_end_date" type="date" value="{{ $crop->harvest_end_date->format('Y-m-d') }}" class="form-control input-md" required="">
 
   </div>
 </div>

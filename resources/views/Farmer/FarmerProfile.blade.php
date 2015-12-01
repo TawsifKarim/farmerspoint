@@ -29,7 +29,7 @@
           </table>
       </div>
 
-      <a href="{{ route('farmercrop.create') }}?id={{ $farmer->id }}" class="btn btn-success">Add Cultivation Infos</a>
+      <a href="{{Route('farmer.crop.create',$farmer->id)}}" class="btn btn-success">Add Cultivation Infos</a>
 
 
         </div>
@@ -69,11 +69,11 @@
                               <td>{{ $farmerCrop->harvest_end_date->toDateString() }}</td>
                               
                               <td>
-                                 <a href="{{ route('farmercrop.edit', $farmerCrop->id) }}" class="btn btn-success btn-xs">Edit</a>
+                                 <a href="{{ Route('farmer.crop.edit', $farmerCrop->id) }}" class="btn btn-success btn-xs btn-block">Edit</a>
                                    
                                   
                                   {!! Form::open(['url' => "farmer/{$farmer->id}/crop/{$farmerCrop->id}", 'method' => 'delete']) !!}
-                                        <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-xs btn-block">Delete</button>
                                   {!! Form::close() !!}
                               </td>
                         </tr>

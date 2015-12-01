@@ -52,7 +52,7 @@
     /*resource controller*/
 
     Route::resource('farmer','farmerController');
-    Route::resource('farmercrop','farmerCropController');
+    Route::resource('farmer.crop','farmerCropController');
     
    // Route::group(['middleware' => 'auth'], function () {
         Route::resource('agent','agentController');

@@ -27,7 +27,7 @@
                     <td>{{ $crop->name }}</td>
                     <td>{{ $crop->harvest_season }}</td>
                     <td>{{ $crop->harvest_locations }}</td>
-                    <td><a href="{{route('crop.show',$crop->id)}}" class="btn btn-success">detail</a></td>
+                    <td><a href="{{route('crop.show',$crop->id)}}" class="btn btn-success btn-block">detail</a></td>
                      
                 </tr>
                 

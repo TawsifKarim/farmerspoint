@@ -26,9 +26,12 @@ class farmerCropController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
-    {
-        $id = $request->id;
+
+
+
+     public function create($id)
+     {
+    
         $cropList = Crop::lists('name', 'id')->all();
         $upazilaList = Upazila::lists('name', 'id')->all();
         return view('Farmer.FarmerCropRegistration', [
@@ -36,7 +39,7 @@ class farmerCropController extends Controller
             'cropList'    => $cropList,
             'upazilaList' => $upazilaList
         ]);
-    }
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -44,22 +47,27 @@ class farmerCropController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FarmerCropRequest $request)
-    {
-        $farmerCrop = FarmerCrop::create([
-            'crop_id'             => $request->crop_id,
-    		'land_location'       => $request->land_location,
-    		'area_of_cultivation' => $request->area_of_cultivation,
-    		'harvest_start_date'  => $request->harvest_start_date,
-    		'harvest_end_date'    => $request->harvest_end_date,
-    		'expected_amount'     => $request->expected_amount,
-    		'status'              => $request->status,
-            'remarks'             => $request->remarks,
-            'user_id'             => $request->id
-        ]);
 
+
+
+ public function store($id, FarmerCropRequest $request)
+     {
+       $farmerCrop = FarmerCrop::create([
+            'crop_id'             => $request->crop_id,
+            'land_location'       => $request->land_location,
+            'area_of_cultivation' => $request->area_of_cultivation,
+            'harvest_start_date'  => $request->harvest_start_date,
+            'harvest_end_date'    => $request->harvest_end_date,
+            'expected_amount'     => $request->expected_amount,
+            'status'              => $request->status,
+            'remarks'             => $request->remarks,
+            'user_id'             => $id
+        ]);
         return 'saved';
-    }
+     }
+
+
+
 
     /**
      * Display the specified resource.
@@ -93,9 +101,13 @@ class farmerCropController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FarmerCropRequest $request, $id)
     {
-        //
+        $input = $request->all();
+        $farmercrop = FarmerCrop::findOrFail($id);
+        $farmercrop->update($input);
+
+        return redirect('farmer/{$farmer->id}');
     }
 
     /**

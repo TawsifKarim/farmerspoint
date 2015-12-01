@@ -4,7 +4,7 @@
 <legend>Land Property</legend>
 
 
-{!! Form::open([null,'class'=>'form-horizontal']) !!}
+{!! Form::open(['url' => "farmer/$farmerId/crop" ,'class'=>'form-horizontal']) !!}
 
 
 <div class="form-group">
