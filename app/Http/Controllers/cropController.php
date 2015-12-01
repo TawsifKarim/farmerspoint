@@ -20,7 +20,7 @@ class cropController extends Controller
      */
     public function index()
     {
-       $allcrop = Crop::paginate(5);
+       $allcrop = Crop::paginate(10);
        return view ('frontend.CropList',compact('allcrop'));
     }
 

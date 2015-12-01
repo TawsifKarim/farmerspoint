@@ -38,7 +38,7 @@
                        <ul class="nav navbar-nav  navbar-right">
                           <li><a href="/">Home</a></li>
                           <li><a href="/farmerPoint">Point List</a></li>
-                          <li><a href="/CropList">Crop List</a></li>
+                          <li><a href="/crop">Crop List</a></li>
                           <li><a href="/AboutUs">About Us</a></li>
                           <li><a href="/SiteAdmin">Site Admin</a></li>
                           <li><a href="/ContactUs">Contact Us</a></li>
@@ -60,7 +60,7 @@
         <ul class="bottom-links">
               <li> <a href="/">Home</a> </li>
               <li><a href="/farmerPoint">Point List</a></li>
-              <li><a href="/CropList">Crop List</a></li>
+              <li><a href="/crop">Crop List</a></li>
               <li><a href="/AboutUs">About Us</a></li>
               <li><a href="/SiteAdmin">Site Admin</a></li>
               <li><a href="/ContactUs">Contact Us</a></li>

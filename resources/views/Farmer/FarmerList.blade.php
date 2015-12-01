@@ -1,4 +1,4 @@
-@extends('layout') 
+@extends('layout.layout') 
 @section('content')
 
 
@@ -28,11 +28,11 @@
                     <td>{{$farmer->name}}</td>
                     <td>{{$farmer->phone}}</td>
                     <td>{{$farmer->address}}</td>
-                    <td>{{$farmer->upazila->upazila}}</td>
-                    <td>{{$farmer->district->district}}</td>
-                    <td>{{$farmer->division->division}}</td>
+                    <td>{{$farmer->upazila->name}}</td>
+                    <td>{{$farmer->district->name}}</td>
+                    <td>{{$farmer->division->name}}</td>
                     <td>
-                        <a href="{{route('Farmer.FarmerProfile',$farmer->id)}}" class="btn btn-success">Profile</a>
+                        <a href="{{ route('farmer.show',$farmer->id )}}" class="btn btn-success">Profile</a>
                     </td>                                       
                 </tr>
                                                         
@@ -41,6 +41,7 @@
                 @endforeach                                   
               </tbody>
             </table>
+            {!! $allfarmer->render() !!}
             </div>
 	</div>
 </div>

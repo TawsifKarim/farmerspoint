@@ -26,7 +26,13 @@ class farmerController extends Controller
     public function index()
     {   
 
-        return $farmerList = User::where('user_type_id', 3)->get();
+         $allfarmer = User::where('user_type_id', 3)->paginate(10);
+         //$allfarmer = User::where('user_type_id', 3)->get(); /previous code
+         return view ('farmer.FarmerList',compact('allfarmer'));
+       
+        //$allpoint = FarmerPoint::paginate(10);
+
+        //return view ('frontend.pointlist',compact('allpoint'));
 
     }
 
@@ -81,7 +87,7 @@ class farmerController extends Controller
       $farmer = User::find($id);
       $farmerCropList = FarmerCrop::where('user_id', $id)->get();
 
-       return view ('Farmer.FarmerProfile', ['farmer' => $farmer, 'farmerCropList' => $farmerCropList]);
+       return view ('farmer.FarmerProfile', ['farmer' => $farmer, 'farmerCropList' => $farmerCropList]);
        //                ->with('farmerCrop',$farmer);
     }
 

@@ -14,37 +14,6 @@
 
 /*--------------for test---------------*/
 
-    Route::get('/ap',function(){
-       return view('agent.agentprofile');
-    });
-
-    Route::get('/af',function(){
-       return view('agent.agentRegistration');
-    });
-
-    Route::get('/cr',function(){
-       return view('crop.cropRegister');
-    });
-
-    Route::get('/ctr',function(){
-       return view('crop.CropTypeRegistration');
-    });
-
-    Route::get('/cp',function(){
-       return view('crop.Cropprofile');
-    });
-
-
-    Route::get('/fp',function(){
-       return view('farmerPoint.createFarmerPoint');
-    });
-
-    Route::get('/fd',function(){
-       return view('farmerPoint.FarmerPointDetail');
-    });
-
-
-
 
     /*--------------front end routes---------------*/
 

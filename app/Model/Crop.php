@@ -27,7 +27,7 @@ class Crop extends Model
         if(file_exists(public_path("uploads/Crops/crop_{$this->id}.jpg"))){
             return url("uploads/Crops/crop_{$this->id}.jpg");
         }
-        return url("img/profile1.jpg");
+        return url("img/defaultcrop.jpg");
     }
 
 }
