@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <img src="img/profile1.jpg" class="img-responsive img-thumbnail">
+            <img src="{{ url($agent->agent) }}" class="img-responsive img-thumbnail">
             <div class="EditButtonTop"></div>
         <a href="{{ route('agent.edit',$agent->id) }}">    <button class="btn btn-info btn-primary btn-block"><span class="glyphicon glyphicon-pencil"></span>Edit Agent Profile</button></a>
 

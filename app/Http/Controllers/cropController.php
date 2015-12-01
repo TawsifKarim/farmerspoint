@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Model\Crop;
 use App\Model\CropType;
+use Intervention\Image\Facades\Image;
 
 class cropController extends Controller
 {
@@ -19,7 +20,8 @@ class cropController extends Controller
      */
     public function index()
     {
-       
+       $allcrop = Crop::paginate(5);
+       return view ('frontend.CropList',compact('allcrop'));
     }
 
     /**
@@ -47,6 +49,9 @@ class cropController extends Controller
             'harvest_locations'     => $request->harvest_locations,
             
         ]);
+        $image = Image::make($request->profile_picture);
+        $image->resize(250, 272);
+        $image->save(public_path("uploads/Crops/crop_$crop->id.jpg"));
         return redirect("crop/{$crop->id}");
     }
 

@@ -85,14 +85,14 @@
     Route::resource('farmer','farmerController');
     Route::resource('farmercrop','farmerCropController');
     
-    Route::group(['middleware' => 'auth'], function () {
+   // Route::group(['middleware' => 'auth'], function () {
         Route::resource('agent','agentController');
         Route::resource('farmer','farmerController');
-    });
+   // });
 
-    Route::group(['middleware' => 'agent'], function () {
+  //  Route::group(['middleware' => 'agent'], function () {
        Route::resource('farmer','farmerController');
-    });
+    //});
 
     
     Route::resource('cropType','cropTypeController');

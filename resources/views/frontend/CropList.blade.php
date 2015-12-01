@@ -21,7 +21,7 @@
                    </tr>
               </thead>   
               <tbody>
-                @foreach($allcrops as $crop)
+                @foreach($allcrop as $crop)
                 <tr>
                     <td>{{$crop->crop_type}}</td>
                     <td>{{$crop->name}}</td>

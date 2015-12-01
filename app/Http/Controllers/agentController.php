@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Model\FarmerPoint;
+use Intervention\Image\Facades\Image;
 
 class agentController extends Controller
 {
@@ -57,6 +58,9 @@ class agentController extends Controller
             'upazila_id'    =>  $request->upazila_id,
             'user_type_id'  =>  2  // 2 is for agent
         ]);
+        $image = Image::make($request->profile_picture);
+        $image->resize(250, 272);
+        $image->save(public_path("uploads/Agents/Agent_$agent->id.jpg"));
         return redirect("agent/{$agent->id}");
     }
 

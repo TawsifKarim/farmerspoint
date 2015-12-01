@@ -22,4 +22,12 @@ class Crop extends Model
 		return $this->belongsTo(CropType::class);
 	}
 
+	public function getCropAttribute()
+    {
+        if(file_exists(public_path("uploads/Crops/crop_{$this->id}.jpg"))){
+            return url("uploads/Crops/crop_{$this->id}.jpg");
+        }
+        return url("img/profile1.jpg");
+    }
+
 }
