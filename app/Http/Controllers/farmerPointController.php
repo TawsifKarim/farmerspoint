@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\FarmerPoint;
 
+
 class farmerPointController extends Controller
 {
     /**

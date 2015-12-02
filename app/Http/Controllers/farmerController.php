@@ -28,6 +28,13 @@ class farmerController extends Controller
 
          $allfarmer = User::where('user_type_id', 3)->paginate(10);
          //$allfarmer = User::where('user_type_id', 3)->get(); /previous code
+         if(!empty($request->phone)){
+         //$allfarmer = User::Where('phone','LIKE','%'.$request->phone.'%')->paginate(10);
+         $allfarmer = User::whereHas('phone','LIKE','%'.$request->phone.'%')->paginate(10);
+         }
+         
+         
+
        return view ('farmer.FarmerList',compact('allfarmer'));
        
       
@@ -42,7 +49,8 @@ class farmerController extends Controller
     public function create()
     {
 
-        return view ('Farmer.FarmerRegistration');
+        $farmerPointList = FarmerPoint::Lists('name','id');
+        return view ('Farmer.FarmerRegistration',['farmerPointList'=>$farmerPointList]);
     }
 
     /**

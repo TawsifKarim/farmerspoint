@@ -24,6 +24,7 @@
                     <tr><td><strong>Upzila</strong></td><td>{{ $agent->upazila->name }}</td></tr>
                     <tr><td><strong>District</strong></td><td>{{ $agent->district->name }}</td></tr>
                     <tr><td><strong>Division</strong></td><td>{{ $agent->division->name }}</td></tr>
+                    <tr><td><strong>Point Name</strong></td><td>{{ $agent->farmerPoint->name }}</td></tr>
                     <tr><td><strong>Remarks</strong></td><td>{{ $agent->remarks }}</td></tr>
 
               </tbody>

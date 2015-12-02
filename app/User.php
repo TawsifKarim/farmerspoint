@@ -6,6 +6,7 @@ use App\Model\Upazila;
 use App\Model\District;
 use App\Model\Division;
 use App\Model\UserType;
+use App\Model\FarmerPoint;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -36,6 +37,7 @@ class User extends Model implements AuthenticatableContract,
         'name',
         'email',
         'phone',
+        'password',
         'address',
         'nid',
         'dob',
@@ -43,7 +45,8 @@ class User extends Model implements AuthenticatableContract,
         'division_id',
         'district_id',
         'upazila_id',
-        'user_type_id'
+        'user_type_id',
+        'farmer_point_id'
     ];
 
     protected $dates = [
@@ -76,6 +79,10 @@ class User extends Model implements AuthenticatableContract,
     public function userType()
     {
         return $this->belongsTo(UserType::class);
+    }
+
+    public function farmerPoint(){
+        return $this->belongsTo(FarmerPoint::class);
     }
 
 public function getFarmerAttribute()

@@ -16,7 +16,7 @@
             <table class="table table-striped table-condensed table-bordered">
                  <tbody>
                   	<tr><td><strong>Crop Name</strong></td><td>{{ $crop->name }}</td></tr>
-                    <tr><td><strong>Crop Type</strong></td><td>{{ $crop->crop_type_id }}</td></tr>
+                    <tr><td><strong>Crop Type</strong></td><td>{{ $crop->cropType->name }}</td></tr>
                     <tr><td><strong>Harvest Season</strong></td><td>{{ $crop->harvest_season }}</td></tr>
                     <tr><td><strong>Harvest Locations</strong></td><td>{{ $crop->harvest_locations }}</td></tr>
                      

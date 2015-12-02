@@ -43,7 +43,7 @@
                     <td>{{$farmer->district->name}}</td>
                     <td>{{$farmer->division->name}}</td>
                     <td>
-                        <a href="{{ route('farmer.show',$farmer->id )}}" class="btn btn-success">Profile</a>
+                        <a href="{{ route('farmer.show',$farmer->id )}}" class="btn btn-success btn-block">Profile</a>
                     </td>                                       
                 </tr>
                                                         

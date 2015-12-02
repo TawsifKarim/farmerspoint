@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use App\Model\FarmerPoint;
 use Intervention\Image\Facades\Image;
 
+use App\Http\Requests\agentRequest;
+
 class agentController extends Controller
 {
     /**
@@ -42,7 +44,7 @@ class agentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(agentRequest $request)
     {
         $agent = User::create([
             'name'          =>  $request->name,
@@ -56,6 +58,7 @@ class agentController extends Controller
             'division_id'   =>  $request->division_id,
             'district_id'   =>  $request->district_id,
             'upazila_id'    =>  $request->upazila_id,
+            'farmer_point_id' => $request->farmer_point_id,
             'user_type_id'  =>  2  // 2 is for agent
         ]);
         $image = Image::make($request->profile_picture);

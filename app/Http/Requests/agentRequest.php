@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
+
+
 class agentRequest extends Request
 {
     /**
@@ -13,7 +15,7 @@ class agentRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,9 +26,9 @@ class agentRequest extends Request
     public function rules()
     {
         return [
-            'name'          => 'required',
+            'name'          => 'required|alpha',
             'email'         => 'email',
-            'password'      => 'required'
+            'password'      => 'required',
             'phone'         => 'required|numeric',
             'address'       => 'required|min:5',
             'nid'           => 'required|numeric',

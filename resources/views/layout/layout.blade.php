@@ -42,7 +42,11 @@
                           <li><a href="/AboutUs">About Us</a></li>
                           <li><a href="/SiteAdmin">Site Admin</a></li>
                           <li><a href="/ContactUs">Contact Us</a></li>
+                          @if(Auth::guest())
                           <li><a href="/login">Log in</a></li>
+                          @else
+                          <li><a href="/logout">Logout</a></li>
+                          @endif
                        </ul>
                   </div>
 

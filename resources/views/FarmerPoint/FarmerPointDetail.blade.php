@@ -51,26 +51,14 @@
                    </tr>
               </thead>
               <tbody>
-
+                @foreach($farmerPoint->user as $agent)
                 <tr>
-                      <td>lutfor rahman</td>
-                      <td>2554654</td>
-
-
-                </tr>
-                 <tr>
-                      <td>Arefin Molla</td>
-                      <td>7526546</td>
+                      <td>{{ $agent->name }}</td>
+                      <td>{{ $agent->phone }}</td>
 
                 </tr>
-                 <tr>
-                      <td>lutfor rahman</td>
-                      <td>2554654</td>
-
-
-                </tr>
-
-               </tbody>
+                @endforeach
+                 </tbody>
             </table>
             </div>
         </div>

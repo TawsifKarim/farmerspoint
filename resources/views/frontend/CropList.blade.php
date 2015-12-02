@@ -34,7 +34,7 @@
               <tbody>
                 @foreach($allcrop as $crop)
                 <tr>
-                    <td>{{ $crop->crop_type_id }}</td>
+                    <td>{{ $crop->cropType->name }}</td>
                     <td>{{ $crop->name }}</td>
                     <td>{{ $crop->harvest_season }}</td>
                     <td>{{ $crop->harvest_locations }}</td>

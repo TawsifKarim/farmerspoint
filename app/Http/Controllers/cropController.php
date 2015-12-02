@@ -47,16 +47,20 @@ class cropController extends Controller
      */
     public function store(Request $request)
     {
-         $crop = Crop::create([
+        $crop = Crop::create([
             'name'                 =>  $request->name,
             'crop_type_id'         =>  $request->crop_type_id,
             'harvest_season'       =>  $request->harvest_season,
             'harvest_locations'     => $request->harvest_locations,
             
         ]);
-        $image = Image::make($request->profile_picture);
-        $image->resize(250, 272);
-        $image->save(public_path("uploads/Crops/crop_$crop->id.jpg"));
+         if(!empty($request->profile_picture)){
+
+            $image = Image::make($request->profile_picture);
+            $image->resize(250, 272);
+            $image->save(public_path("uploads/Crops/crop_$crop->id.jpg"));
+            
+         }
         return redirect("crop/{$crop->id}");
     }
 

@@ -139,6 +139,15 @@
   </div>
 </div>
 
+<!--Assigned to point-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="v">Farmer Point</label>
+  <div class="col-md-4">
+  {!! Form::select('farmer_point_id', $farmerPointList, null, ['class' => 'form-control']) !!}
+
+  </div>
+</div>
+
 
 
 

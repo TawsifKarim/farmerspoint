@@ -4,6 +4,8 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\User;
+
 class FarmerPoint extends Model
 {
     protected $table = "farmer_point";
@@ -35,6 +37,10 @@ class FarmerPoint extends Model
     public function agent()
     {
         return $this->hasMany(AgentInfo::class);
+    }
+
+    public function user(){
+        return $this->hasMany(User::class);
     }
 
 }
