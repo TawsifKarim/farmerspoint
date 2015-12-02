@@ -18,9 +18,14 @@ class cropController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       $allcrop = Crop::paginate(10);
+        $allcrop = Crop::orderBy('name');
+        $crop_name = $request->input('name');
+        if(!empty($crop_name)){
+            $allcrop->Where('name','LIKE','%'.$crop_name.'%');
+        }
+        $allcrop = $allcrop->paginate(10);
        return view ('frontend.CropList',compact('allcrop'));
     }
 

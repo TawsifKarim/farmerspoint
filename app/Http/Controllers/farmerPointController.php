@@ -15,10 +15,23 @@ class farmerPointController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $allpoint = FarmerPoint::paginate(10);
 
+
+        $allpoint = FarmerPoint::orderBy('name');
+        $point_name = $request->input('name'); //form data receiving
+        $point_district = $request->input('district_id');
+        
+        if(!empty($point_name)){                //filtering allpoint with name
+            $allpoint->Where('name','LIKE','%'.$point_name.'%');
+        }
+        
+        if(!empty($point_district)){            //filtering allpoint with district
+            $allpoint->Where('district_id','LIKE','%'.$point_district.'%');
+        }
+        
+        $allpoint=$allpoint->paginate(10);
         return view ('frontend.pointlist',compact('allpoint'));
     }
 

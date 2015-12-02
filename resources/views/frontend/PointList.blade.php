@@ -4,9 +4,34 @@
 <div class="TopSpacePointList"></div>
 <div class="container">
 
+
+
 	<div class="row">
+
+                    
+
 		<div class="span5">
 
+                    <!--searching section starts-->
+                    {!! Form::open(['route'=>'farmerPoint.index','method'=>'GET','class'=>'form-horizontal']) !!}
+                    <!--search box-->
+                    <div class="form-group">
+                     <!--search box for point name-->
+                        <div class="col-md-3">
+                      <input id="name" name="name" type="text" placeholder="Search by point name" class="form-control input-md">
+                        </div>
+                    <!--search box-->
+                        <div class="col-md-3">
+                      <input id="point_district" name="district_id" type="text" placeholder="Search by District" class="form-control input-md">
+                        </div>
+                    <!--search button-->
+                      <button id="" name="" class="btn btn-primary">Search</button>
+                        </div>
+                      </div>
+                    
+
+                    {!! Form::close() !!}
+                    <!--Searching section ends-->
 
             <table class="table table-striped table-condensed table-bordered">
                   <thead>
@@ -14,10 +39,10 @@
                       <th>Point Name</th>
                       <th>Contact</th>
                       <th>Address</th>
-					  <th>upazila</th>
-					  <th>District</th>
-					  <th>Division</th>
-					  <th>Actions</th>
+					            <th>upazila</th>
+					            <th>District</th>
+					            <th>Division</th>
+					            <th>Actions</th>
 
                    </tr>
               </thead>

@@ -23,16 +23,14 @@ class farmerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {   
 
          $allfarmer = User::where('user_type_id', 3)->paginate(10);
          //$allfarmer = User::where('user_type_id', 3)->get(); /previous code
-         return view ('farmer.FarmerList',compact('allfarmer'));
+       return view ('farmer.FarmerList',compact('allfarmer'));
        
-        //$allpoint = FarmerPoint::paginate(10);
-
-        //return view ('frontend.pointlist',compact('allpoint'));
+      
 
     }
 

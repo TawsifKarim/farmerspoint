@@ -7,7 +7,18 @@
 
 	<div class="row">
 		<div class="span5">
-
+                   <!--searching section starts-->
+                    {!! Form::open(['route'=>'farmer.index','method'=>'GET','class'=>'form-horizontal']) !!}
+                    <!--search box-->
+                    <div class="form-group">
+                     <!--search box for point name-->
+                        <div class="col-md-3">
+                      <input id="name" name="phone" type="text" placeholder="Search by Phone number" class="form-control input-md">
+                        </div>
+                    <!--search button-->
+                      <button id="" name="" class="btn btn-primary">Search</button>
+                        </div>
+                      </div>
 
             <table class="table table-striped table-condensed table-bordered table-hover">
                   <thead>

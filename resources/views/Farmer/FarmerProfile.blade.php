@@ -69,8 +69,6 @@
                               <td>{{ $farmerCrop->harvest_end_date->toDateString() }}</td>
                               
                               <td>
-                                 <a href="{{ Route('farmer.crop.edit', $farmerCrop->id) }}" class="btn btn-success btn-xs btn-block">Edit</a>
-                                   
                                   
                                   {!! Form::open(['url' => "farmer/{$farmer->id}/crop/{$farmerCrop->id}", 'method' => 'delete']) !!}
                                         <button type="submit" class="btn btn-danger btn-xs btn-block">Delete</button>
