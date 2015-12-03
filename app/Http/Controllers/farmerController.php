@@ -13,6 +13,7 @@ use App\District;
 use App\upazila;
 use App\Model\FarmerCrop;
 use App\Model\FarmerPoint;
+use App\Model\Crop;
 
 use Intervention\Image\Facades\Image;
 
@@ -31,10 +32,13 @@ class farmerController extends Controller
         
          //listing Farmerpoint for dropdown
          $farmerPointList = FarmerPoint::Lists('name','id'); 
+         $cropList = Crop::Lists('name','id');
          //recieving data from search field
          $farmer_name = $request->input('name');
          $farmer_phone = $request->input('phone');
-         $farmerInPoint = $request->input('id'); 
+         $farmerInPoint = $request->input('id');
+         $farmerWithCrop = $request->input('crop');
+
          
          if(!empty($farmer_name)){
 
@@ -47,9 +51,16 @@ class farmerController extends Controller
 
          if(!empty($farmerInPoint)){
             $allfarmer = User::where('user_type_id',3)->where('farmer_point_id',$farmerInPoint)->paginate(10);
-         }
+        }
+            if(!empty($farmerWithCrop)){
+                $allfarmer = User::with('crop')->where('crop_id',$farmerWithCrop)->paginate(10);
+            }
          
-       return view ('farmer.FarmerList',['allfarmer'=>$allfarmer,'farmerPointList'=>$farmerPointList]);
+
+
+       return view ('farmer.FarmerList',['allfarmer'=>$allfarmer,
+                                         'farmerPointList'=>$farmerPointList,
+                                         'cropList'=>$cropList]);
        
       
 

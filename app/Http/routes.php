@@ -45,6 +45,13 @@
     Route::get('/login', function () {
         return view('frontend.login');
     });
+
+     Route::get('/AdminPanel', function () {
+        return view('frontend.AdminPanel');
+    });
+      Route::get('/AgentPanel', function () {
+        return view('frontend.AgentPanel');
+    });
     
   //  Route::post('/login', 'Auth\AuthController@postLogin');
 

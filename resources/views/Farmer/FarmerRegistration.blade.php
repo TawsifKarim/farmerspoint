@@ -1,7 +1,6 @@
 @extends('layout.layout')
 @section('content')
 
-<img src="/img/bg5.jpg" class="img-responsive">
 
 <div class="container-fluid">
 

@@ -23,6 +23,10 @@
                         <div class="col-md-2">
                       {!! Form::select('id', $farmerPointList,null, ['class' => 'form-control','placeholder' => 'Point Name']) !!}
                         </div> 
+                     <!--search box for point name-->
+                    <div class="col-md-2">
+                  {!! Form::select('crop', $cropList,null, ['class' => 'form-control','placeholder' => 'Crop Name']) !!}
+                    </div>
                     <!--search button-->
                       <button id="" name="" class="btn btn-primary">Search</button>
                       <button id="" name="" class="btn btn-primary">Back to List</button>
