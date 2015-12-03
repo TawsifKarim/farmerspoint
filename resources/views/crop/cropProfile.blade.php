@@ -19,7 +19,9 @@
                     <tr><td><strong>Crop Type</strong></td><td>{{ $crop->cropType->name }}</td></tr>
                     <tr><td><strong>Harvest Season</strong></td><td>{{ $crop->harvest_season }}</td></tr>
                     <tr><td><strong>Harvest Locations</strong></td><td>{{ $crop->harvest_locations }}</td></tr>
-                     
+                    <tr><td><strong>Price(per kg)</strong></td><td>সরকার কতৃক নির্ধারিত মূল্য তালিকা</td></tr>
+                    <tr><td><strong>Cultivation Process</strong></td><td>Need to be updated</td></tr>
+                    <tr><td><strong>Food Value(per kg)</strong></td><td>Need to be updated</td></tr>
               </tbody>
           </table>
       </div>

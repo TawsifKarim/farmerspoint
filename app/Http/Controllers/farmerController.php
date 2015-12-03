@@ -25,17 +25,31 @@ class farmerController extends Controller
      */
     public function index(Request $request)
     {   
-
+        //listing all farmer when no search is done
          $allfarmer = User::where('user_type_id', 3)->paginate(10);
          //$allfarmer = User::where('user_type_id', 3)->get(); /previous code
+        
+         //listing Farmerpoint for dropdown
+         $farmerPointList = FarmerPoint::Lists('name','id'); 
+         //recieving data from search field
+         $farmer_name = $request->input('name');
+         $farmer_phone = $request->input('phone');
+         $farmerInPoint = $request->input('id'); 
+         
+         if(!empty($farmer_name)){
+
+            $allfarmer = User::where('user_type_id',3)->where('name','LIKE','%'.$farmer_name.'%')->paginate(10);
+         }
+
          if(!empty($request->phone)){
-         //$allfarmer = User::Where('phone','LIKE','%'.$request->phone.'%')->paginate(10);
-         $allfarmer = User::whereHas('phone','LIKE','%'.$request->phone.'%')->paginate(10);
+             $allfarmer = User::where('user_type_id',3)->where('phone','LIKE','%'.$farmer_phone.'%')->paginate(10);
+         }
+
+         if(!empty($farmerInPoint)){
+            $allfarmer = User::where('user_type_id',3)->where('farmer_point_id',$farmerInPoint)->paginate(10);
          }
          
-         
-
-       return view ('farmer.FarmerList',compact('allfarmer'));
+       return view ('farmer.FarmerList',['allfarmer'=>$allfarmer,'farmerPointList'=>$farmerPointList]);
        
       
 

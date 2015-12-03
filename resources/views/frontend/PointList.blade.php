@@ -59,9 +59,9 @@
                     <td>{{$point->name}}</td>
                     <td>{{$point->phone}}</td>
                     <td>{{$point->address}}</td>
-					<td>{{$point->upazila->name}}</td>
-					<td>{{$point->district->name}}</td>
-					<td>{{$point->division->name}}</td>
+					          <td>{{$point->upazila->name}}</td>
+					          <td>{{$point->district->name}}</td>
+					          <td>{{$point->division->name}}</td>
 					<td><a href="{{ route('farmerPoint.show',$point->id) }}" class="btn btn-info btn-block">Detail</a></td>
 
                 </tr>

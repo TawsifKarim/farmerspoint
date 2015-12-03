@@ -19,11 +19,38 @@ class agentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-       $allagent = User::where('user_type_id', 2)->get();
-        
-        return view ('agent.AgentList',compact('allagent'));
+    public function index(Request $request)
+    {  
+
+       //listing all agent when no search is done
+       $allagent = User::where('user_type_id', 2)->paginate(15);
+       
+
+       //listing for drop down menu
+       $farmerPointList = FarmerPoint::Lists('name','id'); 
+
+
+        //taking input from search field
+       $agent_name = $request->input('name');
+       $agent_phone = $request->input('phone');
+       $agent_point = $request->input('id');
+       //searching requested data
+       if(!empty($agent_name)){
+           $allagent = User::where('user_type_id',2)->where('name','LIKE','%'.$agent_name.'%')->paginate(10);
+          }
+
+        if(!empty($agent_phone)){
+           $allagent = User::where('user_type_id',2)->where('phone','LIKE','%'.$agent_phone.'%')->paginate(10);
+           }  
+        if(!empty($agent_point)){
+            $allagent = User::where('user_type_id',2)->where('farmer_point_id',$agent_point)->paginate(10);
+        }
+       
+       //updating allagent variable
+       //$allagent=$allagent->paginate(10);
+
+
+        return view ('agent.AgentList',['allagent'=>$allagent,'farmerPointList'=>$farmerPointList]);
     }
 
     /**
