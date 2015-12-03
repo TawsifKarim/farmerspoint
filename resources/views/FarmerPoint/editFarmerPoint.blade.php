@@ -6,7 +6,7 @@
 <div class="container-fluid">
 
 
-{!! Form::open(['route'=>'farmerPoint.update',$farmerPoint->id,'class'=>'form-horizontal','method'=>'PUT']) !!}
+{!! Form::open(['route'=>['farmerPoint.update',$farmerPoint->id],'class'=>'form-horizontal','method'=>'PUT']) !!}
 
 <fieldset>
 

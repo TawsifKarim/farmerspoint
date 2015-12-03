@@ -44,7 +44,7 @@ class agentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(agentRequest $request)
+    public function store(Request $request)
     {
         $agent = User::create([
             'name'          =>  $request->name,

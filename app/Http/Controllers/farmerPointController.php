@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\FarmerPoint;
+use App\Model\District;
 
 
 class farmerPointController extends Controller
@@ -19,21 +20,35 @@ class farmerPointController extends Controller
     public function index(Request $request)
     {
 
-
-        $allpoint = FarmerPoint::orderBy('name');
-        $point_name = $request->input('name'); //form data receiving
+        //getting all point when no search is done
+        $allpoint = FarmerPoint::orderBy('name'); 
+        
+        //listing for drop down search
+        $farmerPointList = FarmerPoint::Lists('name','id'); 
+        $districtList = District::Lists('name','id'); 
+        
+        //form data receiving
+        $point_name = $request->input('id'); 
         $point_district = $request->input('district_id');
+        $phone = $request->input('phone');
+
+        if(!empty($phone)){
+            $allpoint->Where('phone','LIKE','%'.$phone.'%');
+        }
         
         if(!empty($point_name)){                //filtering allpoint with name
-            $allpoint->Where('name','LIKE','%'.$point_name.'%');
+            $allpoint->Where('id','LIKE','%'.$point_name.'%');
         }
         
         if(!empty($point_district)){            //filtering allpoint with district
-            $allpoint->Where('district_id','LIKE','%'.$point_district.'%');
+            $allpoint->Where('district_id',$point_district);
         }
         
         $allpoint=$allpoint->paginate(10);
-        return view ('frontend.pointlist',compact('allpoint'));
+        return view ('frontend.pointlist',['allpoint' => $allpoint,
+                                           'farmerPointList'=>$farmerPointList,
+                                           'districtList' =>$districtList
+                                          ]);
     }
 
     /**
@@ -98,12 +113,12 @@ class farmerPointController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-       // $input = $request->all();
-       // $farmerPoint = FarmerPoint::findOrFail($id);
-        // $farmerPoint ->update($input);
-       // return redirect("farmerPoint/{$farmerPoint->id}");
+        $input = $request->all();
+        $farmerPoint = FarmerPoint::findOrFail($id);
+        $farmerPoint ->update($input);
+        return redirect("farmerPoint/{$farmerPoint->id}");
 
     }
 

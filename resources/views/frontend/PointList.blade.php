@@ -17,17 +17,24 @@
                     <!--search box-->
                     <div class="form-group">
                      <!--search box for point name-->
-                        <div class="col-md-3">
-                      <input id="name" name="name" type="text" placeholder="Search by point name" class="form-control input-md">
+                <div class="col-md-3">
+                {!! Form::select('id', $farmerPointList,null, ['class' => 'form-control','placeholder' => 'Point Name']) !!}
+                </div>
+                 
+
+                 <div class="col-md-3"> 
+
+                  {!! Form::text('phone',null,['class'=>'form-control','placeholder'=>'Contact number']) !!}
+                 </div> 
+                <div class="col-md-3">
+                {!! Form::select('district_id', $districtList,null, ['class' => 'form-control','placeholder' => 'District Name']) !!}
                         </div>
-                    <!--search box-->
-                        <div class="col-md-3">
-                      <input id="point_district" name="district_id" type="text" placeholder="Search by District" class="form-control input-md">
-                        </div>
+                    
                     <!--search button-->
                       <button id="" name="" class="btn btn-primary">Search</button>
+                      <button id="" name="" class="btn btn-primary">Back to List</button>
                         </div>
-                      </div>
+    </div>      
                     
 
                     {!! Form::close() !!}

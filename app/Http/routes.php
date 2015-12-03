@@ -46,7 +46,7 @@
         return view('frontend.login');
     });
     
-    Route::post('/login', 'Auth\AuthController@postLogin');
+  //  Route::post('/login', 'Auth\AuthController@postLogin');
 
     /*front end route ends*/
 

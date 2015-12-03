@@ -73,7 +73,7 @@ class AuthController extends Controller
             return redirect('/');
         }
     }
-    public function postLogout(Request $request){
+    public function getLogout(Request $request){
         Auth::logout();
         return redirect('/');
     }
