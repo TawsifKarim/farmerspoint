@@ -42,6 +42,8 @@
                           <li><a href="/AboutUs">About Us</a></li>
                           <li><a href="/SiteAdmin">Site Admin</a></li>
                           <li><a href="/ContactUs">Contact Us</a></li>
+                          <li><a href="/AdminPanel">Admin</a></li>
+                          <li><a href="/AgentPanel">Agent</a></li>
                           @if(Auth::guest())
                           <li><a href="/login">Log in</a></li>
                           @else

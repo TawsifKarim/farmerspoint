@@ -22,7 +22,7 @@
                     <tr><td><strong>Address</strong></td><td>{{ $farmer->address }}</td></tr>
                     <tr><td><strong>Upzila</strong></td><td>{{ $farmer->upazila->name }}</td></tr>
                     <tr><td><strong>District</strong></td><td>{{ $farmer->district->name }}</td></tr>
-                    <tr><td><strong>Division</strong></td><td>{{ $farmer->division->name }}</td></tr>
+                    <tr><td><strong>Division</strong></td><td>{{ $farmer->division->name }}</td></tr> 
                     <tr><td><strong>Registered From</strong></td><td>{{ $farmer->farmerPoint->name}}</td></tr>
                     <tr><td><strong>Remarks</strong></td><td>{{ $farmer->remarks }}</td></tr>
 
