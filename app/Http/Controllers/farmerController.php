@@ -87,16 +87,17 @@ class farmerController extends Controller
     public function store(UserRequest $request)
     {
         $farmer = User::create([
-            'name'          =>  $request->name,
-            'phone'         =>  $request->phone,
-            'address'       =>  $request->address,
-            'nid'           =>  $request->nid,
-            'dob'           =>  $request->dob,
-            'remarks'       =>  $request->remarks,
-            'division_id'   =>  $request->division_id,
-            'district_id'   =>  $request->district_id,
-            'upazila_id'    =>  $request->upazila_id,
-            'user_type_id'  =>  3   // 3 is for farmer
+            'name'            =>  $request->name,
+            'phone'           =>  $request->phone,
+            'address'         =>  $request->address,
+            'nid'             =>  $request->nid,
+            'dob'             =>  $request->dob,
+            'remarks'         =>  $request->remarks,
+            'division_id'     =>  $request->division_id,
+            'district_id'     =>  $request->district_id,
+            'upazila_id'      =>  $request->upazila_id,
+            'farmer_point_id' =>  $request->farmer_point_id,
+            'user_type_id'    =>  3   // 3 is for farmer
         ]);
         $image = Image::make($request->profile_picture);
         $image->resize(250, 272);
