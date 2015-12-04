@@ -41,7 +41,8 @@ class cropTypeController extends Controller
             $crop = CropType::create([
             'name'          =>  $request->name,
             ]);
-            return 'crop name saved successfully to database';
+            //return 'crop name saved successfully to database';
+            return redirect("/AdminPanel");
     }
 
     /**

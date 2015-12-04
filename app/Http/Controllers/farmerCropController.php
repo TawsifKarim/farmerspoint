@@ -9,6 +9,8 @@ use App\Model\FarmerCrop;
 use App\Model\Crop;
 use App\Model\Upazila;
 
+use App\User;
+
 class farmerCropController extends Controller
 {
     /**
@@ -63,7 +65,9 @@ class farmerCropController extends Controller
             'remarks'             => $request->remarks,
             'user_id'             => $id
         ]);
-        return 'saved';
+        $farmer = User::findOrFail($id);
+        //return 'saved';
+       return redirect("farmer/{$farmer->id}");
      }
 
 
