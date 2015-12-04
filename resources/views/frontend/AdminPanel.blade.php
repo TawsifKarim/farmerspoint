@@ -6,9 +6,9 @@
 
 
 
-           <div class="col-md-2" style="background-color: #000000; height:100%;" >
+           <div class="col-md-2" id="panelMenu">
             <div class="panelTop"></div>
-           <legend> <h3 style="color:white; text-align: center;">Admin Panel</h3> </legend>
+           <legend> <h3 style="color:grey; text-align: center;">Admin Panel</h3> </legend>
 
 
             
