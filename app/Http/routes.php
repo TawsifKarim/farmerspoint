@@ -47,13 +47,23 @@
     });
 
      Route::get('/AdminPanel', function () {
-        return view('frontend.AdminPanel');
+        if(Auth::user()->user_type_id==1){
+        return view('frontend.AdminPanel');       
+        }
+        return redirect('auth/login');
     });
+
       Route::get('/AgentPanel', function () {
-        return view('frontend.AgentPanel');
+        if(Auth::user()->user_type_id==2){
+        return view('frontend.AgentPanel');       
+        }
+        return redirect('auth/login');
     });
+
+
+      
     
-  //  Route::post('/login', 'Auth\AuthController@postLogin');
+
 
     /*front end route ends*/
 
@@ -64,8 +74,8 @@
     Route::resource('farmer.crop','farmerCropController');
     
    // Route::group(['middleware' => 'auth'], function () {
-        Route::resource('agent','agentController');
-        Route::resource('farmer','farmerController');
+    Route::resource('agent','agentController');
+    Route::resource('farmer','farmerController');
    // });
 
   //  Route::group(['middleware' => 'agent'], function () {
@@ -82,8 +92,13 @@
 
 
     // Authentication routes...
+    Route::get('auth/login',function(){
+        return view('auth/login');
+      });
+    Route::post('auth/login', 'Auth\AuthController@postLogin'); //for login
+    Route::get('auth/logout', 'Auth\AuthController@getLogout'); //for logout
      //after submit goes to this page
-    Route::get('auth/logout', 'Auth\AuthController@getLogout'); 
+
     // Password reset link request routes...
     Route::get('password/email', 'Auth\PasswordController@getEmail');
     Route::post('password/email', 'Auth\PasswordController@postEmail');

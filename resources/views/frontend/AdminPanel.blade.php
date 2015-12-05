@@ -10,7 +10,7 @@
             <div class="panelTop"></div>
            <legend> <h3 style="color:grey; text-align: center;">Admin Panel</h3> </legend>
 
-
+           <p>Welcome {{ Auth::user()->name }}</p>
             
    <a href="{{ route('agent.create') }}"><button class="btn btn-primary btn-sm   btn-block" style="margin:3px 0px;">Register Agent</button></a>
    <a href="{{ route('farmer.create') }}"><button class="btn btn-primary btn-sm   btn-block" style="margin:3px 0px;">Register Farmer</button></a>

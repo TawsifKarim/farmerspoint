@@ -10,7 +10,7 @@
 			    	<h3 class="panel-title">Login to site</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form" method="post">
+			    	<form action="{{ url('auth/login') }}" role="form" method="post">
                     <fieldset>
 			    	  	<div class="form-group">
 			    		    <input class="form-control" placeholder="yourmail@example.com" name="email" type="text">
@@ -23,6 +23,7 @@
 			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
 			    	    	</label>
 			    	    </div>
+			    	    {{ csrf_field()}}
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
 			    	</fieldset>
 			      	</form>

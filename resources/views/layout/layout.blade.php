@@ -41,12 +41,23 @@
                           <li><a href="/AboutUs">About Us</a></li>
                           <li><a href="/SiteAdmin">Site Admin</a></li>
                           <li><a href="/ContactUs">Contact Us</a></li>
-                          <li><a href="/AdminPanel">Admin</a></li>
-                          <li><a href="/AgentPanel">Agent</a></li>
+                          
+                          @if(!Auth::guest())
+                            
+                            @if(Auth::user()->user_type_id == 1)
+                            <li><a href="/AdminPanel">Admin</a></li>
+                            @endif
+                          
+                            @if(Auth::user()->user_type_id == 2)
+                            <li><a href="/AgentPanel">Agent</a></li>
+                            @endif
+                          
+                          @endif
+                          
                           @if(Auth::guest())
-                          <li><a href="/login">Log in</a></li>
+                          <li><a href="auth/login">Log in</a></li>
                           @else
-                          <li><a href="/logout">Logout</a></li>
+                          <li><a href="auth/logout">Logout</a></li>
                           @endif
                        </ul>
                   </div>

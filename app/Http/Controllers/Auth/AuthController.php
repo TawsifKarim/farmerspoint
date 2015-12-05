@@ -70,7 +70,10 @@ class AuthController extends Controller
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             // Authentication passed...
-            return redirect('/');
+            if(Auth::user()->user_type_id == 1){
+             return redirect('/AdminPanel');    
+            }
+            return redirect('/AgentPanel');
         }
     }
     public function getLogout(Request $request){
