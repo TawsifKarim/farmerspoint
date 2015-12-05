@@ -22,13 +22,13 @@
     });
 
 
-    Route::get('/PointList', function () {
+  /*  Route::get('/PointList', function () {
         return view('frontend.PointList');
-    });
+    }); 
 
     Route::get('/CropList', function () {
         return view('frontend.CropList');
-    });
+    }); */
 
     Route::get('/AboutUs', function () {
         return view('frontend.AboutUs');
@@ -42,50 +42,67 @@
         return view('frontend.ContactUs');
     });
 
-    Route::get('/login', function () {
-        return view('frontend.login');
-    });
 
-     Route::get('/AdminPanel', function () {
-        if(Auth::user()->user_type_id==1){
-        return view('frontend.AdminPanel');       
+    /* Route::get('/AdminPanel', function () {
+        if(Auth::check()){
+           
+           if(Auth::user()->user_type_id==1){
+            return view('frontend.AdminPanel');       
+            }
+           else{
+            return view ('auth/login');  
         }
-        return redirect('auth/login');
-    });
+       }
+     }); */
 
-      Route::get('/AgentPanel', function () {
-        if(Auth::user()->user_type_id==2){
-        return view('frontend.AgentPanel');       
+     
+   /*   Route::get('/AgentPanel', function () {
+        if(Auth::check()){
+           
+           if(Auth::user()->user_type_id==2){
+            return view('frontend.AgentPanel');       
+            }
+           else{
+            return view ('auth/login');  
+            }   
         }
-        return redirect('auth/login');
-    });
+     }); */
 
 
       
     
 
-
-    /*front end route ends*/
-
-
-    /*resource controller*/
-
-    Route::resource('farmer','farmerController');
-    Route::resource('farmer.crop','farmerCropController');
     
-   // Route::group(['middleware' => 'auth'], function () {
+    //guest routes
+    Route::resource('/farmerPoint','farmerPointController',['only' => ['index', 'show']]);
+    Route::resource('/crop','cropController',['only' => ['index', 'show']]);
+    
+    //Admin routes
+
+    Route::group(['middleware' => 'auth'], function () {
     Route::resource('agent','agentController');
     Route::resource('farmer','farmerController');
-   // });
+    Route::resource('farmer.crop','farmerCropController');
+    Route::resource('cropType','cropTypeController');
+    Route::resource('crop','cropController',['except' => ['index','show']]);
+    Route::resource('farmerPoint','farmerPointController',['except' => ['index','show']]);
+    Route::get('/AdminPanel',function(){
+       return view('frontend.AdminPanel');
+      });
+    });
 
-  //  Route::group(['middleware' => 'agent'], function () {
+    //agent routes
+       Route::group(['middleware' => 'agent'], function () {
        Route::resource('farmer','farmerController');
-    //});
+       Route::resource('farmer.crop','farmerCropController');
+       Route::resource('agent','agentController',['only' => ['index','show']]);
+       Route::get('/AgentPanel',function(){
+        return view('frontend.AgentPanel'); 
+       });
+    });
 
     
-    Route::resource('cropType','cropTypeController');
-    Route::resource('crop','cropController');
-    Route::resource('farmerPoint','farmerPointController');
+    
 
 
 

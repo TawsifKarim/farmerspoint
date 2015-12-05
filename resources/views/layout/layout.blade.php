@@ -55,9 +55,9 @@
                           @endif
                           
                           @if(Auth::guest())
-                          <li><a href="auth/login">Log in</a></li>
+                          <li><a href="{{ url('auth/login') }}">Log in</a></li>
                           @else
-                          <li><a href="auth/logout">Logout</a></li>
+                          <li><a href="{{ url('auth/logout') }}">Logout</a></li>
                           @endif
                        </ul>
                   </div>
