@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Model\FarmerPoint;
 use App\Model\District;
+use App\Http\Requests\FarmerPointRequest;
 
 
 class farmerPointController extends Controller
@@ -67,7 +68,7 @@ class farmerPointController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FarmerPointRequest $request)
     {
         $farmerPoint = FarmerPoint::create([
             'name'          =>  $request->name,

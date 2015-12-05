@@ -17,7 +17,7 @@
 
 
 <!-- Name input-->
-<div class="form-group">
+<div class="form-group ">
   <label class="col-md-4 control-label" for="Name">Name</label>  
   <div class="col-md-4">
   <input id="Name" name="name" type="text" placeholder="Enter name" class="form-control input-md" required="">
@@ -25,11 +25,11 @@
   </div>
 </div>
 <!-- phone input-->
-<div class="form-group">
+<div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
   <label class="col-md-4 control-label" for="Phone">Phone</label>  
   <div class="col-md-4">
   <input id="Phone" name="phone" type="text" placeholder="Enter phone no." class="form-control input-md" required="">
-    
+    {!! $errors->first('phone','<span class="help-block">:message</span>') !!}
   </div>
 </div>
 <!-- address input-->

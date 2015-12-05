@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class UserRequest extends Request
+class FarmerRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class UserRequest extends Request
     {
         return [
             'name'          => 'required',
-            'email'         => 'email',
+            'email'         => '',
             'phone'         => 'required|numeric',
             'address'       => 'required|min:5',
             'nid'           => 'required|numeric',

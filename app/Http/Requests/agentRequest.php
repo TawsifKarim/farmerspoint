@@ -26,8 +26,8 @@ class agentRequest extends Request
     public function rules()
     {
         return [
-            'name'          => 'required|alpha',
-            'email'         => 'email',
+            'name'          => 'required',
+            'email'         => 'email|unique:users,email',
             'password'      => 'required',
             'phone'         => 'required|numeric',
             'address'       => 'required|min:5',

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
+
 use App\User;
 use App\Division;
 use App\District;
@@ -14,6 +14,7 @@ use App\upazila;
 use App\Model\FarmerCrop;
 use App\Model\FarmerPoint;
 use App\Model\Crop;
+use App\Http\Requests\FarmerRequest;
 
 use Intervention\Image\Facades\Image;
 
@@ -84,7 +85,7 @@ class farmerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(FarmerRequest $request)
     {
         $farmer = User::create([
             'name'            =>  $request->name,

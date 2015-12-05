@@ -22,19 +22,19 @@
 </div>
 </div>
 
-<div class="form-group">
+<div class="form-group {{ $errors->has('area_of_cultivation') ? 'has-error' : '' }}">
   <label class="col-md-4 control-label" for="Area_of_cultivation">Area of Cultivation(in acre)</label>
   <div class="col-md-4">
   <input id="Area_of_cultivation" name="area_of_cultivation" type="number" placeholder="Enter land area" class="form-control input-md" required="">
-
+  {!! $errors->first('area_of_cultivation','<span class="help-block">:message</span>') !!}
   </div>
 </div>
 
-<div class="form-group">
+<div class="form-group {{ $errors->has('expected_amount') ? 'has-error' : '' }}">
   <label class="col-md-4 control-label" for="Expected_production">Expected Production (in kg)</label>
   <div class="col-md-4">
   <input id="Expected_production" name="expected_amount" type="number" placeholder="Enter amount" class="form-control input-md" required="">
-
+  {!! $errors->first('expected_amount','<span class="help-block">:message</span>') !!}
   </div>
 </div>
 

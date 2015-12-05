@@ -16,6 +16,7 @@
                         </div>
                     <!--search button-->
                       <button id="" name="" class="btn btn-primary">Search</button>
+                      <button id="" name="" class="btn btn-primary">Back to List</button>
                         </div>
                       </div>
 

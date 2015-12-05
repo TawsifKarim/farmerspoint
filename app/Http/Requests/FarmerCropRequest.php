@@ -30,8 +30,8 @@ class FarmerCropRequest extends Request
     		'harvest_start_date'  => 'required',
     		'harvest_end_date'    => 'required',
     		'expected_amount'     => 'required',
-    		'status'              => 'required',
-            'remarks'             => 'required'
+    		'status'              => '',
+            'remarks'             => ''
         ];
     }
 }
