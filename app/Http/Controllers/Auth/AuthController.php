@@ -75,6 +75,9 @@ class AuthController extends Controller
             }
             return redirect('/AgentPanel');
         }
+        else{
+            return redirect('auth/login');
+        }
     }
     public function getLogout(Request $request){
         Auth::logout();
