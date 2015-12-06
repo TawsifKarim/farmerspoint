@@ -67,15 +67,6 @@
             }   
         }
      }); */
-
-
-      
-    
-
-    
-    //guest routes
-    Route::resource('/farmerPoint','farmerPointController',['only' => ['index', 'show']]);
-    Route::resource('/crop','cropController',['only' => ['index', 'show']]);
     
     //Admin routes
 
@@ -84,30 +75,28 @@
     Route::resource('farmer','farmerController');
     Route::resource('farmer.crop','farmerCropController');
     Route::resource('cropType','cropTypeController');
-    Route::resource('crop','cropController',['except' => ['index','show']]);
-    Route::resource('farmerPoint','farmerPointController',['except' => ['index','show']]);
-    Route::get('/AdminPanel',function(){
+    Route::resource('crop','cropController');
+    Route::resource('farmerPoint','farmerPointController');
+    Route::get('AdminPanel',function(){
        return view('frontend.AdminPanel');
       });
-    });
+   });
 
     //agent routes
        Route::group(['middleware' => 'agent'], function () {
        Route::resource('farmer','farmerController');
        Route::resource('farmer.crop','farmerCropController');
        Route::resource('agent','agentController',['only' => ['index','show']]);
-       Route::get('/AgentPanel',function(){
+       Route::get('AgentPanel',function(){
         return view('frontend.AgentPanel'); 
        });
     });
 
-    
-    
+    //guest routes
+    Route::resource('farmerPoint','farmerPointController',['only' => ['index', 'show']]);
+    Route::resource('crop','cropController',['only' => ['index', 'show']]);
 
-
-
-
-
+  
     // Authentication routes...
     Route::get('auth/login',function(){
         return view('auth/login');

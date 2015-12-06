@@ -51,11 +51,21 @@ class farmerController extends Controller
          }
 
          if(!empty($farmerInPoint)){
-            $allfarmer = User::where('user_type_id',3)->where('farmer_point_id',$farmerInPoint)->paginate(10);
-        }
             if(!empty($farmerWithCrop)){
-                $allfarmer = User::with('crop')->where('crop_id',$farmerWithCrop)->paginate(10);
+                $allfarmer = User::whereHas('farmerCrop', function ($query) use ($farmerWithCrop) {
+                    $query->where('crop_id', $farmerWithCrop);
+                })->where('user_type_id', 3)->where('farmer_point_id',$farmerInPoint)->paginate(10);
+            } else {
+                $allfarmer = User::where('user_type_id',3)->where('farmer_point_id',$farmerInPoint)->paginate(10);
             }
+        }
+
+        if(!empty($farmerWithCrop)){
+                $allfarmer = User::whereHas('farmerCrop', function ($query) use ($farmerWithCrop) {
+                    $query->where('crop_id', $farmerWithCrop);
+                })->where('user_type_id', 3)->paginate(10);
+            }
+            
          
 
 

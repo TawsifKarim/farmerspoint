@@ -42,7 +42,7 @@ class Authenticate
             }
         }
 
-        if(! $this->auth->user()->user_type != 1) {
+        if($this->auth->user()->user_type_id != 1) {
          return redirect()->guest('auth/login');   
         }
 

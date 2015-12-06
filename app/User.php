@@ -7,6 +7,7 @@ use App\Model\District;
 use App\Model\Division;
 use App\Model\UserType;
 use App\Model\FarmerPoint;
+use App\Model\FarmerCrop;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -83,6 +84,10 @@ class User extends Model implements AuthenticatableContract,
 
     public function farmerPoint(){
         return $this->belongsTo(FarmerPoint::class);
+    }
+
+    public function farmerCrop(){
+        return $this->hasMany(FarmerCrop::class);
     }
 
 public function getFarmerAttribute()

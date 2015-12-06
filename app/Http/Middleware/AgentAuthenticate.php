@@ -42,8 +42,8 @@ class AgentAuthenticate
             }
         }
 
-        if(! $this->auth->user()->user_type != 2) {
-         return redirect()->guest('auth/login');   
+        if(!in_array($this->auth->user()->user_type_id, [1,2])) {
+            return redirect()->guest('auth/login'); 
         }
         return $next($request);
     }
