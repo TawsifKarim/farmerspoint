@@ -17,6 +17,8 @@ class FarmerPoint extends Model
         'upazila_id',
         'district_id',
         'division_id',
+        'la',
+        'lo'
     ];
 
     public function division()
@@ -41,6 +43,9 @@ class FarmerPoint extends Model
 
     public function user(){
         return $this->hasMany(User::class);
+    }
+    public function cropUnderPoint(){
+        return $this->hasManyThrough('users','farmer_crop');
     }
 
 }

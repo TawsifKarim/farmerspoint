@@ -38,6 +38,14 @@
   </div>
 </div>
 
+<div class="form-group {{ $errors->has('expected_amount') ? 'has-error' : '' }}">
+  <label class="col-md-4 control-label" for="price">Price</label>
+  <div class="col-md-4">
+  <input id="Expected_production" name="price" type="number" placeholder="Enter Price" class="form-control input-md" required="">
+  {!! $errors->first('expected_amount','<span class="help-block">:message</span>') !!}
+  </div>
+</div>
+
 <div class="form-group">
   <label class="col-md-4 control-label" for="Harvest_start">harvest start date</label>
   <div class="col-md-4">

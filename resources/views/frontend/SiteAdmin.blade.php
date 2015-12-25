@@ -72,7 +72,7 @@
                         <img src="img/neela.jpg" alt="" class="img-rounded img-responsive" />
                     </div>
                     <div class="col-sm-6 col-md-8">
-                        <h4>Naoeshin Binte Alam</h4>
+                        <h4>Nowshin Binte Alam</h4>
                         <small>Student (ID# 1020858042)</small>
                         <small>Frontend Developer</small>
                         <small><cite title="Dhaka, Bangladesh">North South University Dhaka, Bangladesh <i class="glyphicon glyphicon-map-marker">

@@ -52,6 +52,7 @@
                               <th>Land area(in acre)</th>
                               <th>Cultivated Crop Name</th>
                               <th>Expected Production</th>
+                              <th>Price</th>
                               <th>Harvest start date</th>
                               <th>Harvest End date</th>
                               <th>Actions</th>
@@ -66,6 +67,7 @@
                               <td>{{ $farmerCrop->area_of_cultivation }}</td>
                               <td>{{ $farmerCrop->crop->name }}</td>
                               <td>{{ $farmerCrop->expected_amount }}</td>
+                              <td>{{ $farmerCrop->price }}</td>
                               <td>{{ $farmerCrop->harvest_start_date->toDateString() }}</td>
                               <td>{{ $farmerCrop->harvest_end_date->toDateString() }}</td>
                               

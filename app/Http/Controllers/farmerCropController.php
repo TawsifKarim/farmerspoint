@@ -61,6 +61,7 @@ class farmerCropController extends Controller
             'harvest_start_date'  => $request->harvest_start_date,
             'harvest_end_date'    => $request->harvest_end_date,
             'expected_amount'     => $request->expected_amount,
+            'price'               => $request->price,
             'status'              => $request->status,
             'remarks'             => $request->remarks,
             'user_id'             => $id

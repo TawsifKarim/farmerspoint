@@ -24,6 +24,7 @@ class FarmerCrop extends Model
 		'harvest_end_date',
 		'expected_amount',
 		'status',
+        'price',
 		'remarks'
     ];
 

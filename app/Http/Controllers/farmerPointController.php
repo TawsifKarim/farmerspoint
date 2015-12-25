@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Model\FarmerPoint;
 use App\Model\District;
 use App\Http\Requests\FarmerPointRequest;
+use App\Model\FarmerCrop;
 
 
 class farmerPointController extends Controller
@@ -77,6 +78,8 @@ class farmerPointController extends Controller
             'division_id'   =>  $request->division_id,
             'district_id'   =>  $request->district_id,
             'upazila_id'    =>  $request->upazila_id,
+            'la'            =>  $request->la,
+            'lo'            =>  $request->lo
 
         ]);
         return redirect("farmerPoint/{$farmerPoint->id}");
@@ -91,8 +94,9 @@ class farmerPointController extends Controller
     public function show($id)
     {
         $farmerPoint = FarmerPoint::find($id);
+        $farmerCrop  = FarmerCrop::with('users')->where('farmer_point_id','id');
 
-         return view ('FarmerPoint.FarmerPointDetail', ['farmerPoint' => $farmerPoint]);
+         return view ('FarmerPoint.FarmerPointDetail', ['farmerPoint' => $farmerPoint,'farmerCrop'=>$farmerCrop]);
     }
 
     /**
