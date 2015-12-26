@@ -1,23 +1,54 @@
 @extends('layout.layout')
 @section('content')
 
+<script
+src="http://maps.googleapis.com/maps/api/js">
+</script>
+
 <script type="text/javascript">
 
                 var latitude =[];
                 var longitude = [];
 
-                </script>
-
+</script>
 
 <div class="TopSpacePointList"></div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-          <script type="text/javascript">
-                  latitude.push("23.8343448639");
-                  longitude.push("90.4176483154");
+          
+              <div id="googleMap" style="width:260px;height:272px;"></div>
+              <script>
+  function initialize() {
+    var latitude = <?php echo(json_encode($farmerPoint->la)); ?>;
+    var longitude = <?php echo(json_encode($farmerPoint->lo)); ?>;
+    var zoom = 11;
+    
+    var LatLng = new google.maps.LatLng(latitude, longitude);
 
-              </script>
+  var mapProp = {
+    center: LatLng,
+    zoom: 16,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+  var marker = new google.maps.Marker({
+      position: LatLng,
+      map: map,
+      title: 'Farmer Point',
+      draggable: false
+    });
+//   google.maps.event.addListener(marker, 'dragend', function(event) {
+    
+//       document.getElementById('la').value = event.latLng.lat();
+//       document.getElementById('lo').value = event.latLng.lng();
+ 
+// });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+            
             <!-- <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"width="250" height="272" src="https://maps.google.com/maps?hl=en&q=Pariser Platz, 10117 Berlin&ie=UTF8&t=roadmap&z=6&iwloc=B&output=embed"><div><small><a href="http://embedgooglemaps.com">embedgooglemaps.com</a></small></div><div><small><a href="http://buyproxies.io/">buyproxies.io</a></small></div></iframe> -->
             <div class="EditButtonTop"></div>
 
@@ -123,38 +154,6 @@
         </div>
   </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script>
-  function initialize() {
-    //var latitude = [23.818641700489906,23.9994262522536,24.26011139207214];
-    //var longitude = [90.41748046875,90.142822265625,90.98876953125];
-    var zoom = 10;
 
-    var LatLng = new google.maps.LatLng(latitude[0],longitude[0]);
-    
-    var mapOptions = {
-      zoom: zoom,
-      center: LatLng,
-      panControl: false,
-      zoomControl: false,
-      scaleControl: true,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    } 
-    
-    var map = new google.maps.Map(document.getElementById('map'),mapOptions);
-      
-    for(i=0;i<latitude.length;i++)
-    {
-    var LatLng = new google.maps.LatLng(latitude[i], longitude[i]);
-    var marker = new google.maps.Marker({
-      position: LatLng,
-      map: map,
-      title: 'Drag Me!',
-      draggable: true
-    });
-    }
-    
-  }
-  initialize();
 
 @stop
